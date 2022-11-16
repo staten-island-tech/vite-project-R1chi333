@@ -1,5 +1,5 @@
 body{
-    background-color: pink;
+    background-color: var(--color1);
 }
 h1,h2,h3{
     margin: 200px;
