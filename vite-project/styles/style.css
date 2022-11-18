@@ -1,6 +1,6 @@
 @import url(varibles.css);
 :root{
-    --kuribg: pink
+    --kuribg: black
 }
 #planet-ring{
   position: relative;

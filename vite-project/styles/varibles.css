@@ -4,3 +4,17 @@ body{
 h1,h2,h3{
     margin: 200px;
 }
+#ring{
+    position: absolute;
+    z-index: 1;
+    width: 50%;
+}
+#planet{
+    position: absolute;
+    z-index: 0;
+    width: 50%;
+    margin: auto;
+  }
+#planet-ring{
+    position: relative;
+}
