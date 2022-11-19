@@ -1,17 +1,18 @@
 @import url(varibles.css);
 :root{
-    --kuribg: #14151a
+    --kuribg: black
 }
 #planet-ring{
   position: relative;
-  margin-top: -1%;
-  margin-left: 13%;
 }
 #planet{
   position: absolute;
-  width: 70vw;
+  z-index: 0;
+  width: 50%;
+  margin: auto;
 }
 #ring{
   position: absolute;
-  width: 70vw;
+  z-index: 1;
+  width: 50%;
 }
