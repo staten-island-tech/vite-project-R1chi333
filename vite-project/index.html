@@ -5,18 +5,33 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
   </head>
   <body>
-    <div id="planet-ring">
-      <img id="planet" src="media/kuri-planet.gif" alt="kuri-planet">
-      <img id="ring" src="media/kuri-ring.gif" alt="kuri-ring">
+    <div id="shopname">
+      <h1 id="shopcard">GALAXY'S LITTLE <br> MUSIC SHOP</h1>
     </div>
-    <div id="container">
-      <canvas id="canvas1"></canvas>
-      <audio id="control" controls></audio>
+    <div id="play-card">
+      <h2 class="now-playing">NOW PLAYING:</h2>
+      <h3 id="artist" class="now-playing">artist:</h3>
+    </div>
+    <div id="changeartist">
+      <button class="artistbtn" id="backwards">←</button>
+      <button class="artistbtn" id="forwards">→</button>
+    </div>
+    <div id="planet-ring">
+      <img class="fullplanet" id="planet" src="media/kuri-planet.gif" alt="kuri-planet">
+      <img class="fullplanet" id="ring" src="media/kuri-ring.gif" alt="kuri-ring">
+      <img class="fullplanet" id="orbit" src="media/kuri-orbit.gif" alt="kuri-orbit">
+    </div>
+    <img id="comet" src="media/comet.gif" alt="comet">
+    <div>
+      <canvas id="waves"></canvas>
     </div>
     <div id="audios">
-      <audio id="erhu" src="yoasobi/sukida.mp3"></audio>
+      <audio id="erhu" src="kuritism/erhu.mp3"></audio>
     </div>
     <div id="example"></div>
     <script type="module" src="./js/main.js"></script>
