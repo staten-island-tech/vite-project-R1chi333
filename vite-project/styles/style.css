@@ -32,6 +32,12 @@ body{
 .artistbtn{
   margin-top: 4.2vw;
 }
+#starttext{
+  text-align: center;
+  color: white;
+  margin-top: 18vw;
+  font-size: 150%;
+}
 #planet-ring{
   position: relative;
   z-index: 1;
