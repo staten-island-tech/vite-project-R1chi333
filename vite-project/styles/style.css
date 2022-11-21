@@ -10,6 +10,9 @@ body{
   color: white;
   position: absolute;
   margin-left: 2vw;
+  background-color: var(--kuribg);
+  padding-left: 10px;
+  padding-right: 10px;
 }
 #play-card{
   position: relative;
@@ -43,13 +46,13 @@ body{
   z-index: 1;
 }
 #ring{
-  z-index: 2;
+  z-index: 3;
 }
 #planet{
-  z-index: 0;
+  z-index: 1;
 }
 #orbit{
-  z-index: 1;
+  z-index: 2;
 }
 .fullplanet{
   position: absolute;
@@ -64,9 +67,20 @@ body{
   width: 10%;
 }
 #waves{
-  width: 100%;
-  height: 20%;
+  width: 100vw;
+  height: 17vw;
   position: absolute;
   margin-left: -.3%;
   bottom: 0;
+}
+
+.open {
+  transform: translateX(-25%);
+  transition-property: transform;
+  transition-duration: 1s;
+}
+.close {
+  transform: translateX(0%);
+  transition-property: transform;
+  transition-duration: 1s;
 }
