@@ -1,12 +1,23 @@
-:root{
-    --kuribg: #131418
-}
 body{
   background-color: var(--kuribg);
-  margin: 0;
+  margin: 0%;
   font-family: 'Special Elite', cursive;
+  padding: 0;
 }
-#shopname{
+:root{
+    --kuribg: #FFDDD2
+}
+#title{
+  padding-bottom: 10%;  
+  font-family: 'Yellowtail', cursive;
+  font-size: 7vw;
+}
+#test{
+  fill: #FFACC7;
+  fill-opacity: 1;
+  position: absolute;
+}
+/* #shopname{
   color: white;
   position: absolute;
   margin-left: 2vw;
@@ -83,4 +94,4 @@ body{
   transform: translateX(0%);
   transition-property: transform;
   transition-duration: 1s;
-}
+} */
