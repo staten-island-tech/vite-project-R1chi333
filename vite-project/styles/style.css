@@ -194,13 +194,13 @@ h4{
 }
 
 .header3{
-  background-image: linear-gradient(to bottom, rgb(245, 238, 177), rgb(216, 224, 102));
+  background-image: linear-gradient(to bottom, rgb(252, 244, 163), rgb(250, 218, 94));
 }
 .drip3{
-  fill: rgb(216, 224, 102);
+  fill: rgb(250, 218, 94);
 }
 .bottomcolor3{
-  background-color: rgba(235, 243, 126, 0.295);
+  background-color: rgba(243, 217, 113, 0.37);
 }
 
 .header4{

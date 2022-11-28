@@ -14,58 +14,60 @@ const DOMSelectors = {
   naall: document.getElementById("naall"),
   colorwheel: document.getElementById("color-wheel"),
   yoasobicard: document.getElementById("YOASOBI-AYASE"),
-  productlist: document.getElementById("productlist")
-}
-addEventListener("scroll", function(){
-  const scrolled = window.scrollY
-  if(scrolled >= 80){
+  productlist: document.getElementById("productlist"),
+};
+addEventListener("scroll", function () {
+  const scrolled = window.scrollY;
+  if (scrolled >= 80) {
     DOMSelectors.top.classList.add("up");
     DOMSelectors.top.classList.remove("down");
   }
-  if(scrolled < 80){
+  if (scrolled < 80) {
     DOMSelectors.top.classList.remove("up");
     DOMSelectors.top.classList.add("down");
   }
-})
+});
 
-DOMSelectors.logo.addEventListener("click", function(){
-  document.location.reload()
-})
+DOMSelectors.logo.addEventListener("click", function () {
+  document.location.reload();
+});
 
-
-let colortheme = 1
-let ocolortheme = colortheme - 1
-DOMSelectors.colorchanger.addEventListener("click", function(){
-  DOMSelectors.colorwheel.classList.add("spin")
+let colortheme = 1;
+DOMSelectors.colorchanger.addEventListener("click", function () {
+  DOMSelectors.colorwheel.classList.add("spin");
   setTimeout(() => {
-    DOMSelectors.colorwheel.classList.remove("spin")
-  }, "400")
-  colortheme ++;
-  console.log(colortheme)
-  if(colortheme === 7){
-    let colortheme = 1
+    DOMSelectors.colorwheel.classList.remove("spin");
+  }, "400");
+  colortheme++;
+  console.log(colortheme);
+  if (colortheme === 7) {
+    DOMSelectors.header.classList.remove("header6");
+    DOMSelectors.drip.classList.remove("drip6");
+    DOMSelectors.naall.classList.remove("bottomcolor6");
+    DOMSelectors.header.classList.add(`header1`);
+    DOMSelectors.drip.classList.add(`drip1`);
+    DOMSelectors.naall.classList.add(`bottomcolor1`);
+    colortheme = 1;
     return colortheme;
-  } else {
-    DOMSelectors.header.classList.add(`header${colortheme}`)
-    DOMSelectors.drip.classList.add(`drip${colortheme}`)
-    DOMSelectors.naall.classList.add(`bottomcolor${colortheme}`)
-    DOMSelectors.header.classList.remove(`header${ocolortheme}`)
-    DOMSelectors.drip.classList.remove(`drip${ocolortheme}`)
-    DOMSelectors.naall.classList.remove(`bottomcolor${ocolortheme}`)
   }
-})
+  DOMSelectors.header.classList.add(`header${colortheme}`);
+  DOMSelectors.drip.classList.add(`drip${colortheme}`);
+  DOMSelectors.naall.classList.add(`bottomcolor${colortheme}`);
+  DOMSelectors.header.classList.remove(`header${colortheme - 1}`);
+  DOMSelectors.drip.classList.remove(`drip${colortheme - 1}`);
+  DOMSelectors.naall.classList.remove(`bottomcolor${colortheme - 1}`);
+});
 
-DOMSelectors.yoasobicard.addEventListener("click", function(){
-  DOMSelectors.header.classList.add("changeOpacity")
-  DOMSelectors.drip.classList.add("changeOpacity")
-  DOMSelectors.productlist.classList.add("changeOpacity")
+DOMSelectors.yoasobicard.addEventListener("click", function () {
+  DOMSelectors.header.classList.add("changeOpacity");
+  DOMSelectors.drip.classList.add("changeOpacity");
+  DOMSelectors.productlist.classList.add("changeOpacity");
   setTimeout(() => {
     DOMSelectors.header.remove();
     DOMSelectors.drip.remove();
     DOMSelectors.productlist.remove();
-  }, "1000")
-})
-
+  }, "1000");
+});
 
 // const DOMSelectors = {
 //   forwards: document.getElementById("forwards"),
