@@ -1,16 +1,17 @@
 body{
-  background-color: var(--kuribg);
+  background-color: rgb(255, 250, 253);
   margin: 0%;
   padding: 0;
   font-family: 'Raleway', sans-serif;
   color: black; 
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 h1{
   margin: 0;
 }
-:root{
-  --kuribg: white;
-  --drip: rgb(182, 255, 182);
+body::-webkit-scrollbar {
+  display: none;
 }
 #deal{
   top: 0;
@@ -57,7 +58,6 @@ h1{
   border-radius: 25px;
   padding: 10%;
 }
-
 .up{
   transition-duration: 1s;
   transform: translateY(-30%);
@@ -66,16 +66,12 @@ h1{
   transition-duration: 1s;
   transform: translateY(0%);
 }
-
 #header{
   z-index: 2;
   padding-top: 9%;
   position: relative;
-  background-image: linear-gradient(to bottom, rgb(234, 182, 255), rgb(175, 111, 148));
   text-align: center;
 }
-
-
 #colorchanger{
   position: absolute;
   background-color: rgba(255, 255, 255, 0.116);
@@ -118,141 +114,126 @@ h1{
   position: relative;
 } 
 #wavy{
-  fill: rgb(175, 111, 148);
   fill-opacity: 1;
   position: absolute;
   margin-top: -10%;
 }
 
-#productlist{
-  margin-top: 8%;
-}
-#na{
-  font-size: 1vw;
-  margin-left: 2%;
+.productsubtitles{
   text-decoration: underline;
+  margin-top: 8%;
+  margin-left: 2%;
 }
-#products{
+#fproducts{
   display: flex;
   justify-content: space-around;
-}
-
-
-
-
-/* #e{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  background-color: #faefef80;
-}
-#fc{
-  margin-top: 7%;
-  font-size: 1.5vw;
-  margin-left: 3%;
-  text-decoration: underline;
-}
-.artist-icons{
-  width: 15vw;
-  z-index: 2;
-  position: relative
-}
-.back{  
-  fill: #db6666;
-  z-index: 1;
-  position: relative
-}
-.colorcode{
   margin: 0;
-}
-.somethin{
-  color: rgba(255, 82, 82, 0.76);
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 1vw;
   text-align: center;
   position: relative;
 }
-#title{
-  font-size: 12vw;
-  letter-spacing: 10px;
-  font-family: 'Caveat', cursive;
-  text-shadow: 5px 5px #db6666;
-} */
-/* #shopname{
-  color: white;
-  position: absolute;
-  margin-left: 2vw;
-  background-color: var(--kuribg);
-  padding-left: 10px;
-  padding-right: 10px;
+.product{
+  color: rgba(128, 128, 128, 0.582);
+  font-size: .9vw;
+  opacity: 1;
 }
-#play-card{
-  position: relative;
+h4{
+  margin: 0;
+  margin-top: 5%;
 }
-.now-playing{
-  color: white;
-  position: absolute;
+#divider{
+  fill: rgb(255, 250, 253);
+  margin-top: -5%;
+}
+#new-arrivals{
+  display: flex;
   text-align: center;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
-#artist{
-  margin-top: 3%;
+#naall{
+  margin-top: -20%;
+  padding-top: 5%;
 }
-#changeartist{
-  text-align: center;
-  position: relative;
-  z-index: 2;
+.product:not(hover){
+  scale: 100%;
+  transition-duration: .2s;
 }
-.artistbtn{
-  margin-top: 4.2vw;
+.product:hover{
+  scale: 105%;
+  transition-duration: .2s;
 }
-#starttext{
-  text-align: center;
-  color: white;
-  margin-top: 18vw;
-  font-size: 150%;
+.spin {
+  rotate: 360deg;
+  transition-duration: .5s;
+
 }
-#planet-ring{
-  position: relative;
-  z-index: 1;
+.newproducts{
+  margin-right: 3%;
+  margin-left: 3%;
 }
-#ring{
-  z-index: 3;
-}
-#planet{
-  z-index: 1;
-}
-#orbit{
-  z-index: 2;
-}
-.fullplanet{
-  position: absolute;
-  width: 60vw;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  top: 23.5vw;
+.icon{
+  width: 22vw;
 }
 
-#comet{
-  position: absolute;
-  width: 10%;
+.header1{
+  background-image: linear-gradient(to bottom, rgb(233, 155, 155), rgb(196, 110, 110));
 }
-#waves{
-  width: 100vw;
-  height: 17vw;
-  position: absolute;
-  margin-left: -.3%;
-  bottom: 0;
+.drip1{
+  fill: rgb(196, 110, 110);
+}
+.bottomcolor1{
+  background-color: rgba(247, 158, 158, 0.329);
 }
 
-.open {
-  transform: translateX(-25%);
-  transition-property: transform;
-  transition-duration: 1s;
+.header2{
+  background-image: linear-gradient(to bottom, rgb(255, 200, 129), rgb(196, 135, 78));
 }
-.close {
-  transform: translateX(0%);
-  transition-property: transform;
-  transition-duration: 1s;
-} */
+.drip2{
+  fill: rgb(196, 135, 78);
+}
+.bottomcolor2{
+  background-color: rgba(216, 159, 106, 0.24);
+}
+
+.header3{
+  background-image: linear-gradient(to bottom, rgb(245, 238, 177), rgb(216, 224, 102));
+}
+.drip3{
+  fill: rgb(216, 224, 102);
+}
+.bottomcolor3{
+  background-color: rgba(235, 243, 126, 0.295);
+}
+
+.header4{
+  background-image: linear-gradient(to bottom, rgb(187, 255, 187), rgb(142, 199, 142));
+}
+.drip4{
+  fill: rgb(142, 199, 142);
+}
+.bottomcolor4{
+  background-color: rgba(166, 219, 166, 0.356);
+}
+
+.header5{
+  background-image: linear-gradient(to bottom, rgb(149, 199, 255), rgb(64, 144, 175));
+}
+.drip5{
+  fill: rgb(64, 144, 175);
+}
+.bottomcolor5{
+  background-color: rgba(67, 187, 235, 0.329);
+}
+
+.header6{
+  background-image: linear-gradient(to bottom, rgb(198, 149, 255), rgb(144, 64, 175));
+}
+.drip6{
+  fill: rgb(144, 64, 175);
+}
+.bottomcolor6{
+  background-color: rgba(193, 82, 236, 0.226);
+}
+
+.changeOpacity{
+  opacity: 0;
+  transition-duration: .5s;
+}

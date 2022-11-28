@@ -21,48 +21,53 @@
       <div id="logo"><img id="logo2" src="media/logo.png" alt="logo"><!-- <h1>𝄞 Musir 𝄢 --></h1></div>
     </div>
     <div>
-      <div id="header">
+      <div class="header1" id="header">
         <div id="ms">
           <h2 id="slogan">listen to the colors ♪~</h2>
-          <p id="missionstatement">idk how to make this look nice, but u can click the color wheel btw</p>
+          <p id="missionstatement">idk how to make this look nice, but u can click the color wheel and products btw</p>
         </div>
         <div id="colorchanger">
           <img id="color-wheel" src="media/color-wheel.webp" alt="color-wheel">
         </div>
       </div>
-      <div id="drip">
+      <div id="drip" class="drip1">
         <svg id="wavy" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path d="M0,192L60,192C120,192,240,192,360,208C480,224,600,256,720,250.7C840,245,960,203,1080,
           192C1200,181,1320,203,1380,213.3L1440,224L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path></svg>
       </div>
     </div>
     <div id="productlist">
-      <h3 id="na">NEW ARRIVALS</h3>
-      <div id="products">
-        <div id="YOASOBI-AYASE">
+      <h3 class="productsubtitles" id="fp">FEATURED PRODUCTS</h3>
+      <div id="fproducts">
+        <div class="product" id="YOASOBI-AYASE">
           <h4>#YOASOBI-AYASE</h4>
+          <img class="icon" src="artist-icons/ayase.png" alt="YOASOBI-AYASE">
         </div>
-        <div id="KURITISM">
-          <h4>#KURITISM</h4>
+        <div class="product" id="FUJI-KAZE">
+          <h4>#FUJI-KAZE</h4>
+          <img class="icon" src="artist-icons/fuji.png" alt="FUJI-KAZE">
+        </div>
+        <div class="product" id="ADO">
+          <h4>#ADO</h4>
+          <img class="icon" src="artist-icons/ado.png" alt="ADO">
         </div>
       </div>
+      <svg id="divider" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path d="M0,128L48,144C96,160,192,192,288,181.3C384,171,480,117,576,122.7C672,128,768,192,864,202.7C960,213,1056,171,1152,154.7C1248,139,1344,149,1392,154.7L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+      </svg>
+      <div id="naall" class="bottomcolor1">
+        <h3 class="productsubtitles" id="na">NEW ARRIVALS</h3>
+        <div id="new-arrivals">
+          <div class="product newproducts" id="KURITISM">
+            <h4>#KURITISM</h4>
+            <img class="icon" src="artist-icons/kuri.png" alt="KURI">
+          </div>
+          <div class="product newproducts" class="product" id="EVE">
+            <h4>#EVE</h4>
+            <img class="icon" src="artist-icons/ayase.png" alt="YOASOBI-AYASE">
+          </div>
+      </div>
+      </div>
     </div>
-    <!-- <div id="shopname">
-      <h1 id="shopcard">GALAXY'S LITTLE <br> MUSIC SHOP</h1>
-    </div>
-    <div id="play-card">
-      <h2 id="nowPLaying" class="now-playing">NOW PLAYING:</h2>
-      <h3 id="artist" class="now-playing">artist:</h3>
-    </div>
-    <div id="changeartist">
-      <button class="artistbtn" id="backwards">←</button>
-      <button class="artistbtn" id="forwards">→</button>
-    </div>
-    <p id="starttext">↑★start exploring the galaxy★↑</p>
-    <div>
-      <canvas id="waves"></canvas>
-    </div>
-    <audio class="sfx" id="select" src="sfx/select.m4a"></audio>
-    <div id="example"></div> -->
     <script type="module" src="./js/main.js"></script>
   </body>
 </html>

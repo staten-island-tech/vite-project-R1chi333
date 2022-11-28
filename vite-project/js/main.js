@@ -7,7 +7,14 @@ const DOMSelectors = {
   logo: document.getElementById("logo"),
   op: document.getElementById("op"),
   menu: document.getElementById("menu"),
-  top: document.getElementById("top")
+  top: document.getElementById("top"),
+  colorchanger: document.getElementById("colorchanger"),
+  header: document.getElementById("header"),
+  drip: document.getElementById("drip"),
+  naall: document.getElementById("naall"),
+  colorwheel: document.getElementById("color-wheel"),
+  yoasobicard: document.getElementById("YOASOBI-AYASE"),
+  productlist: document.getElementById("productlist")
 }
 addEventListener("scroll", function(){
   const scrolled = window.scrollY
@@ -20,6 +27,46 @@ addEventListener("scroll", function(){
     DOMSelectors.top.classList.add("down");
   }
 })
+
+DOMSelectors.logo.addEventListener("click", function(){
+  document.location.reload()
+})
+
+
+let colortheme = 1
+let ocolortheme = colortheme - 1
+DOMSelectors.colorchanger.addEventListener("click", function(){
+  DOMSelectors.colorwheel.classList.add("spin")
+  setTimeout(() => {
+    DOMSelectors.colorwheel.classList.remove("spin")
+  }, "400")
+  colortheme ++;
+  console.log(colortheme)
+  if(colortheme === 7){
+    let colortheme = 1
+    return colortheme;
+  } else {
+    DOMSelectors.header.classList.add(`header${colortheme}`)
+    DOMSelectors.drip.classList.add(`drip${colortheme}`)
+    DOMSelectors.naall.classList.add(`bottomcolor${colortheme}`)
+    DOMSelectors.header.classList.remove(`header${ocolortheme}`)
+    DOMSelectors.drip.classList.remove(`drip${ocolortheme}`)
+    DOMSelectors.naall.classList.remove(`bottomcolor${ocolortheme}`)
+  }
+})
+
+DOMSelectors.yoasobicard.addEventListener("click", function(){
+  DOMSelectors.header.classList.add("changeOpacity")
+  DOMSelectors.drip.classList.add("changeOpacity")
+  DOMSelectors.productlist.classList.add("changeOpacity")
+  setTimeout(() => {
+    DOMSelectors.header.remove();
+    DOMSelectors.drip.remove();
+    DOMSelectors.productlist.remove();
+  }, "1000")
+})
+
+
 // const DOMSelectors = {
 //   forwards: document.getElementById("forwards"),
 //   backwards: document.getElementById("backwards"),
