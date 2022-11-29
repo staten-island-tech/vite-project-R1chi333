@@ -1,11 +1,111 @@
-body{
+body, h1{
+  background-color: black;
+  margin: 0;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  font-family: 'Sigmar One', cursive;
+}
+
+#osuBase{
+  width: 110vw;
+  position: absolute;
+  z-index: 0;
+}
+
+#title {
+  position: absolute;
+  color: Pink;
+  background-color: white;
+  z-index: 2;
+  font-size: 5vw;
+  letter-spacing: 10px;
+}
+#back{
+  padding: 12%;
+  border-radius: 100%;
+  position: absolute;
+  background-color: pink;
+  z-index: 1;
+}
+#backTop{
+  padding: 11%;
+  border-radius: 100%;
+  position: absolute;
+  background-color: white;
+  z-index: 1;
+}
+
+.bigCircle{
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.margin{
+  margin-top: 25%;
+}
+
+#backTop:hover{
+  padding: 12%;
+  transition-duration: .2s;
+}
+
+#backTop:not(hover){
+  padding: 11%;
+  transition-duration: .2s;
+}
+
+.slide{
+  transform: translateX(-20%);
+  transition-duration: 1s;
+}
+
+.slideBack{
+  transform: translateX(0%);
+  transition-duration: 1s;
+}
+
+#modes{
+  color: pink;
+  position: absolute;
+  top: 20%;
+  right: 15%;
+  font-family: 'Kanit', sans-serif;
+}
+.mode{
+  background-color: white;
+  margin-top: 5%;
+  border-radius: 30px;  
+  padding-right: 20vw;
+  text-align: left;
+  padding-left: 1.5vw;
+  font-size: 2vw;
+  box-shadow: 12px 12px 2px 1px pink;
+  letter-spacing: .1vw;
+}
+.mode:hover{
+  background-color: black;
+}
+.changeOpacity{
+  opacity: 1;
+  transition-duration: 1s;
+}
+
+.changeOpacityBack{
+  opacity: 0;
+  transition-duration: 1s;
+}
+.hidden{
+  opacity: 0;
+}
+
+/* body{
   background-color: rgb(255, 250, 253);
   margin: 0%;
   padding: 0;
   font-family: 'Raleway', sans-serif;
   color: black; 
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;   IE and Edge 
+  scrollbar-width: none;   Firefox 
 }
 h1{
   margin: 0;
@@ -87,8 +187,6 @@ body::-webkit-scrollbar {
 #color-wheel:hover{
   width: 3.5vw;
   transition-duration: .2s;
-  /* transform: rotate(360deg);
-  transition-duration: 2s; */
 }
 #color-wheel:not(:hover){
   width: 3vw;
@@ -236,4 +334,4 @@ h4{
 .changeOpacity{
   opacity: 0;
   transition-duration: .5s;
-}
+}*/
