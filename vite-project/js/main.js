@@ -42,14 +42,46 @@ function addModeSelector(){
   <div class="mode" id="expertMode">
     <h2>EXPERT</h2>
 </div>`)
+  const easyMode = document.getElementById("easyMode")
+  const hardMode = document.getElementById("hardMode")
+  const expertMode = document.getElementById("expertMode")
+  const mediumMode = document.getElementById("mediumMode")
   const modes = document.getElementById("modes")
   setTimeout(() => {
     modes.classList.remove("hidden")
     modes.classList.add("changeOpacity")
     modes.classList.remove("changeOpacityBack")
-  }, "1")
+  }, 1)
+  easyMode.addEventListener("click", function(){
+    removeModeSelectors();
+    let mode = "easy"
+    return mode;
+  })
+  hardMode.addEventListener("click", function(){
+    removeModeSelectors();
+    let mode = "hard"
+    return mode;
+  })
+  mediumMode.addEventListener("click", function(){
+    removeModeSelectors();
+    let mode = "medium"
+    return mode;
+  })
+  expertMode.addEventListener("click", function(){
+    removeModeSelectors();
+    let mode = "expert"
+    return mode;
+  })
 }
 
+function removeModeSelectors(){
+  modes.classList.add("changeOpacityQuicker")
+  DOMSelectors.ozu.classList.add("changeOpacityQuicker")
+  setTimeout(() => {
+    modes.remove();
+    DOMSelectors.ozu.remove();
+  }, 400 )
+}
 function removeModeSelector(){
   const modes = document.getElementById("modes")
   modes.classList.remove("changeOpacity")
