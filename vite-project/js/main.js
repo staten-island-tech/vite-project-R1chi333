@@ -79,7 +79,7 @@ function addModeSelector(){
     return mode;
   })
 }
-
+let songContainer = null;
 function showPlayableSongs(){
   DOMSelectors.el.insertAdjacentHTML("afterend", `<div id="songContainer">
   <h3 id="selectSign"></h3>SELECT</h3>
@@ -87,12 +87,16 @@ function showPlayableSongs(){
   songs
     .filter((filteredSongs) => filteredSongs.difficulty === mode)
     .forEach((playableSongs) => {
-      let songContainer = document.getElementById("songContainer")
+      songContainer = document.getElementById("songContainer")
       songContainer.insertAdjacentHTML("beforeend", `      
       <div class="songCard" id="playableSong">
       <h4>${playableSongs.title}</h4>
       <p>${playableSongs.artist}</p>
       </div>`)
+      let theCard = document.getElementById("theCard")
+      theCard.addEventListener("mouseover", function(){
+        console.log("nfijerkgnre")
+      })
     });
 }
 

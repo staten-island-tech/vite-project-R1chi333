@@ -1,24 +1,11 @@
 let songs = [
     {
-        title: "erhu",
-        artist: "kuritism",
-        album: "comet",
+        title: "Drop Pop Candy",
+        artist: "NekRock",
+        art: "media/droppopcandy.png",
         audio: "kuritism/erhu.mp3",
-        difficulty: "easy"
-    },
-    {
-        title: "tester4",
-        artist: "kuritism",
-        album: "comet",
-        audio: "kuritism/erhu.mp3",
-        difficulty: "hard"
-    },
-    {
-        title: "tester5",
-        artist: "kuritism",
-        album: "comet",
-        audio: "kuritism/erhu.mp3",
-        difficulty: "easy"
+        difficulty: "easy",
+        mv:""
     }
 ]
 
