@@ -14,11 +14,7 @@ let audioElement = document.querySelector("#audio");
 let canvasElement = document.querySelector("#osuBase");
 let wave = new Wave(audioElement, canvasElement);
 
-<<<<<<< Updated upstream
-DOMSelectors.ozu.addEventListener("click", function(){
-=======
-addEventListener("click", function () {
->>>>>>> Stashed changes
+DOMSelectors.ozu.addEventListener("click", function () {
   audioElement.play();
 });
 
@@ -29,20 +25,12 @@ DOMSelectors.backTop.addEventListener("click", function () {
 });
 DOMSelectors.title.addEventListener("click", function () {
   opening();
-<<<<<<< Updated upstream
-})
-let mode = ""
-function addModeSelector(){
-  DOMSelectors.el.insertAdjacentHTML("afterend", 
-  `<div id="modes" class="hidden">
-=======
 });
 let mode = "";
 function addModeSelector() {
   DOMSelectors.el.insertAdjacentHTML(
     "afterend",
     `<div id="modes" class="hidden">
->>>>>>> Stashed changes
   <div class="mode" id="easyMode">
     <h2>EASY</h2>
   </div>
@@ -62,90 +50,57 @@ function addModeSelector() {
   const mediumMode = document.getElementById("mediumMode");
   const modes = document.getElementById("modes");
   setTimeout(() => {
-<<<<<<< Updated upstream
-    modes.classList.remove("hidden")
-    modes.classList.add("changeOpacity")
-    modes.classList.remove("changeOpacityBack")
-  }, 1)
-  easyMode.addEventListener("click", function(){
-    audioElement.pause();
-    removeModeSelectors();
-    mode = "easy"
-    showPlayableSongs();
-=======
     modes.classList.remove("hidden");
     modes.classList.add("changeOpacity");
     modes.classList.remove("changeOpacityBack");
   }, 1);
   easyMode.addEventListener("click", function () {
+    audioElement.pause();
     removeModeSelectors();
     mode = "easy";
-    levelSelectOpen();
->>>>>>> Stashed changes
+    showPlayableSongs();
     return mode;
   });
   hardMode.addEventListener("click", function () {
     removeModeSelectors();
-<<<<<<< Updated upstream
     audioElement.pause();
-    mode = "hard"
-    showPlayableSongs();
-=======
     mode = "hard";
-    levelSelectOpen();
->>>>>>> Stashed changes
+    showPlayableSongs();
     return mode;
   });
   mediumMode.addEventListener("click", function () {
     removeModeSelectors();
-<<<<<<< Updated upstream
     audioElement.pause();
-    mode = "medium"
-=======
     mode = "medium";
-    levelSelectOpen();
->>>>>>> Stashed changes
     return mode;
   });
   expertMode.addEventListener("click", function () {
     removeModeSelectors();
-<<<<<<< Updated upstream
     audioElement.pause();
-    mode = "expert"
-=======
     mode = "expert";
-    levelSelectOpen();
->>>>>>> Stashed changes
     return mode;
   });
 }
 
-function levelSelectOpen() {
-  DOMSelectors.el.insertAdjacentHTML("afterend", `<p id="ah">hi</p>`);
-  songs
-    .filter((el) => el.difficulty === mode)
-    .forEach((ell) => {
-      console.log(ell.difficulty);
-    });
-}
 let songContainer = null;
-function showPlayableSongs(){
-  DOMSelectors.el.insertAdjacentHTML("afterend", `<div id="songContainer">
+function showPlayableSongs() {
+  DOMSelectors.el.insertAdjacentHTML(
+    "afterend",
+    `<div id="songContainer">
   <h3 id="selectSign"></h3>SELECT</h3>
-  </div>`)
+  </div>`
+  );
   songs
     .filter((filteredSongs) => filteredSongs.difficulty === mode)
     .forEach((playableSongs) => {
-      songContainer = document.getElementById("songContainer")
-      songContainer.insertAdjacentHTML("beforeend", `      
-      <div class="songCard" id="playableSong">
+      songContainer = document.getElementById("songContainer");
+      songContainer.insertAdjacentHTML(
+        "beforeend",
+        `      
+      <div class="songCard" id="${playableSongs.id}">
       <h4>${playableSongs.title}</h4>
-      <p>${playableSongs.artist}</p>
-      </div>`)
-      let theCard = document.getElementById("theCard")
-      theCard.addEventListener("mouseover", function(){
-        console.log("nfijerkgnre")
-      })
+      </div>`
+      );
     });
 }
 

@@ -1,30 +1,28 @@
 let songs = [
-<<<<<<< Updated upstream
-    {
-        title: "Drop Pop Candy",
-        artist: "NekRock",
-        art: "media/droppopcandy.png",
-        audio: "kuritism/erhu.mp3",
-        difficulty: "easy",
-        mv:""
-    }
-]
-=======
   {
-    title: "erhu",
-    artist: "kuritism",
-    album: "comet",
-    audio: "kuritism/erhu.mp3",
-    difficulty: "easy",
-  },
-  {
-    title: "erhu2",
-    artist: "kuritism",
-    album: "comet",
+    title: "Drop Pop Candy",
+    art: "media/droppopcandy.png",
     audio: "kuritism/erhu.mp3",
     difficulty: "hard",
+    mv: "",
+    id: "one",
+  },
+  {
+    title: "RAD DOGS",
+    art: "media/droppopcandy.png",
+    audio: "kuritism/erhu.mp3",
+    difficulty: "easy",
+    mv: "",
+    id: "two",
+  },
+  {
+    title: "Erhu",
+    art: "media/droppopcandy.png",
+    audio: "kuritism/erhu.mp3",
+    difficulty: "easy",
+    mv: "",
+    id: "three",
   },
 ];
->>>>>>> Stashed changes
 
 export { songs };
