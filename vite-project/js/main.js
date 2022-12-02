@@ -7,29 +7,42 @@ const DOMSelectors = {
   backTop: document.getElementById("backTop"),
   title: document.getElementById("title"),
   el: document.getElementById("el"),
-  back: document.getElementById("back")
-}
+  back: document.getElementById("back"),
+};
 
 let audioElement = document.querySelector("#audio");
 let canvasElement = document.querySelector("#osuBase");
 let wave = new Wave(audioElement, canvasElement);
 
+<<<<<<< Updated upstream
 DOMSelectors.ozu.addEventListener("click", function(){
+=======
+addEventListener("click", function () {
+>>>>>>> Stashed changes
   audioElement.play();
-})
+});
 
-let open = false
+let open = false;
 
-DOMSelectors.backTop.addEventListener("click", function(){
+DOMSelectors.backTop.addEventListener("click", function () {
   opening();
-})
-DOMSelectors.title.addEventListener("click", function(){
+});
+DOMSelectors.title.addEventListener("click", function () {
   opening();
+<<<<<<< Updated upstream
 })
 let mode = ""
 function addModeSelector(){
   DOMSelectors.el.insertAdjacentHTML("afterend", 
   `<div id="modes" class="hidden">
+=======
+});
+let mode = "";
+function addModeSelector() {
+  DOMSelectors.el.insertAdjacentHTML(
+    "afterend",
+    `<div id="modes" class="hidden">
+>>>>>>> Stashed changes
   <div class="mode" id="easyMode">
     <h2>EASY</h2>
   </div>
@@ -41,13 +54,15 @@ function addModeSelector(){
   </div>
   <div class="mode" id="expertMode">
     <h2>EXPERT</h2>
-</div>`)
-  const easyMode = document.getElementById("easyMode")
-  const hardMode = document.getElementById("hardMode")
-  const expertMode = document.getElementById("expertMode")
-  const mediumMode = document.getElementById("mediumMode")
-  const modes = document.getElementById("modes")
+</div>`
+  );
+  const easyMode = document.getElementById("easyMode");
+  const hardMode = document.getElementById("hardMode");
+  const expertMode = document.getElementById("expertMode");
+  const mediumMode = document.getElementById("mediumMode");
+  const modes = document.getElementById("modes");
   setTimeout(() => {
+<<<<<<< Updated upstream
     modes.classList.remove("hidden")
     modes.classList.add("changeOpacity")
     modes.classList.remove("changeOpacityBack")
@@ -57,27 +72,61 @@ function addModeSelector(){
     removeModeSelectors();
     mode = "easy"
     showPlayableSongs();
-    return mode;
-  })
-  hardMode.addEventListener("click", function(){
+=======
+    modes.classList.remove("hidden");
+    modes.classList.add("changeOpacity");
+    modes.classList.remove("changeOpacityBack");
+  }, 1);
+  easyMode.addEventListener("click", function () {
     removeModeSelectors();
+    mode = "easy";
+    levelSelectOpen();
+>>>>>>> Stashed changes
+    return mode;
+  });
+  hardMode.addEventListener("click", function () {
+    removeModeSelectors();
+<<<<<<< Updated upstream
     audioElement.pause();
     mode = "hard"
     showPlayableSongs();
+=======
+    mode = "hard";
+    levelSelectOpen();
+>>>>>>> Stashed changes
     return mode;
-  })
-  mediumMode.addEventListener("click", function(){
+  });
+  mediumMode.addEventListener("click", function () {
     removeModeSelectors();
+<<<<<<< Updated upstream
     audioElement.pause();
     mode = "medium"
+=======
+    mode = "medium";
+    levelSelectOpen();
+>>>>>>> Stashed changes
     return mode;
-  })
-  expertMode.addEventListener("click", function(){
+  });
+  expertMode.addEventListener("click", function () {
     removeModeSelectors();
+<<<<<<< Updated upstream
     audioElement.pause();
     mode = "expert"
+=======
+    mode = "expert";
+    levelSelectOpen();
+>>>>>>> Stashed changes
     return mode;
-  })
+  });
+}
+
+function levelSelectOpen() {
+  DOMSelectors.el.insertAdjacentHTML("afterend", `<p id="ah">hi</p>`);
+  songs
+    .filter((el) => el.difficulty === mode)
+    .forEach((ell) => {
+      console.log(ell.difficulty);
+    });
 }
 let songContainer = null;
 function showPlayableSongs(){
@@ -100,36 +149,36 @@ function showPlayableSongs(){
     });
 }
 
-function removeModeSelectors(){
-  modes.classList.add("changeOpacityQuicker")
-  DOMSelectors.ozu.classList.add("changeOpacityQuicker")
+function removeModeSelectors() {
+  modes.classList.add("changeOpacityQuicker");
+  DOMSelectors.ozu.classList.add("changeOpacityQuicker");
   setTimeout(() => {
     modes.remove();
     DOMSelectors.ozu.remove();
-  }, 400 )
+  }, 400);
 }
-function removeModeSelector(){
-  const modes = document.getElementById("modes")
-  modes.classList.remove("changeOpacity")
-  modes.classList.add("changeOpacityBack")
+function removeModeSelector() {
+  const modes = document.getElementById("modes");
+  modes.classList.remove("changeOpacity");
+  modes.classList.add("changeOpacityBack");
   setTimeout(() => {
     modes.remove();
-  }, "1000")
+  }, "1000");
 }
-function opening(){
-  if(open === false){
+function opening() {
+  if (open === false) {
     addModeSelector();
-    DOMSelectors.ozu.classList.remove("slideBack")
-    DOMSelectors.ozu.classList.add("slide")
+    DOMSelectors.ozu.classList.remove("slideBack");
+    DOMSelectors.ozu.classList.add("slide");
     open = true;
-    console.log(open)
+    console.log(open);
     return open;
-  } else{
+  } else {
     removeModeSelector();
-    DOMSelectors.ozu.classList.add("slideBack")
-    DOMSelectors.ozu.classList.remove("slide")
+    DOMSelectors.ozu.classList.add("slideBack");
+    DOMSelectors.ozu.classList.remove("slide");
     open = false;
-    console.log(open)
+    console.log(open);
     return open;
   }
 }
@@ -148,7 +197,7 @@ function fix_dpi() {
     .getPropertyValue("height")
     .slice(0, -2);
   //get CSS width
- let style_width = +getComputedStyle(canvas)
+  let style_width = +getComputedStyle(canvas)
     .getPropertyValue("width")
     .slice(0, -2);
   //scale the canvas
@@ -157,9 +206,11 @@ function fix_dpi() {
 }
 fix_dpi();
 
-wave.addAnimation(new wave.animations.Glob({
-  count: 100,
-  fillColor: "pink",
-  lineWidth: 5,
-  lineColor: "#fff"
-}));
+wave.addAnimation(
+  new wave.animations.Glob({
+    count: 100,
+    fillColor: "pink",
+    lineWidth: 5,
+    lineColor: "#fff",
+  })
+);
