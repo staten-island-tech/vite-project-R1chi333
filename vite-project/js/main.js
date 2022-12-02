@@ -81,7 +81,7 @@ function addModeSelector() {
     return mode;
   });
 }
-
+let artOn = true
 let songContainer = null;
 function showPlayableSongs() {
   DOMSelectors.el.insertAdjacentHTML(
@@ -101,6 +101,31 @@ function showPlayableSongs() {
       <h4>${playableSongs.title}</h4>
       </div>`
       );
+      let theSongCard = document.getElementById(`${playableSongs.id}`)
+      theSongCard.addEventListener("mouseover", function(){
+        if(artOn === true){
+          DOMSelectors.el.insertAdjacentHTML("afterend", `<div class="changeOpacityQuicker" id="albumcover"><img id="albumcoverart" src="${playableSongs.art}" alt=""></div>`)
+          let albumCover = document.getElementById("albumcover")
+          albumCover.classList.remove("changeOpacityQuicker")
+          albumCover.classList.add("changeOpacityQuickerOn")
+          artOn = false
+          console.log(artOn)
+          return artOn;
+        }
+      })
+      theSongCard.addEventListener("mouseout", function(){
+        if(artOn === false){
+          let albumCover = document.getElementById("albumcover")
+          albumCover.classList.add("changeOpacityQuicker")
+          albumCover.classList.remove("changeOpacityQuickerOn")
+          setTimeout(() => {
+            albumCover.remove();
+          }, 400)
+          artOn = true
+          console.log(artOn)
+          return artOn;
+        }
+      })
     });
 }
 

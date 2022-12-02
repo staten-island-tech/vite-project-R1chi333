@@ -109,8 +109,23 @@ body, h1{
   transition-duration: .40s;
 }
 
+.changeOpacityQuickerOn{
+  animation-name: hopethisworks;
+  /* opacity: 1;
+  transition-duration: .40s; */
+} 
+@keyframes hopethisworks {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+    transition-duration: .40s;
+  }
+}
 h1,h2,h3,h4,p{
-    margin: 0;
+  margin: 0;
 }
 #songContainer{
     color: pink;
@@ -138,20 +153,21 @@ h1,h2,h3,h4,p{
     padding-top: 1%;
     padding-bottom: 1%;
 }
-#one:hover{
+.songCard:hover{
   scale: 110%;
   transition-duration: .2s;
 }
-#one:not(hover){
+.songCard:not(hover){
   scale: 100%;
   transition-duration: .2s;
 }
 
-#two:hover{
-  scale: 110%;
-  transition-duration: .2s;
+#albumcover{
+  position: absolute;
+  top: 14%;
+  left: 12%;
 }
-#two:not(hover){
-  scale: 100%;
-  transition-duration: .2s;
+#albumcoverart{
+  width: 35vw;
+  box-shadow: 12px 12px 2px 1px pink;
 }
