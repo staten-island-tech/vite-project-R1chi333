@@ -14,7 +14,7 @@ let audioElement = document.querySelector("#audio");
 let canvasElement = document.querySelector("#osuBase");
 let wave = new Wave(audioElement, canvasElement);
 
-addEventListener("click", function(){
+DOMSelectors.ozu.addEventListener("click", function(){
   audioElement.play();
 })
 
@@ -26,7 +26,7 @@ DOMSelectors.backTop.addEventListener("click", function(){
 DOMSelectors.title.addEventListener("click", function(){
   opening();
 })
-
+let mode = ""
 function addModeSelector(){
   DOMSelectors.el.insertAdjacentHTML("afterend", 
   `<div id="modes" class="hidden">
@@ -53,25 +53,47 @@ function addModeSelector(){
     modes.classList.remove("changeOpacityBack")
   }, 1)
   easyMode.addEventListener("click", function(){
+    audioElement.pause();
     removeModeSelectors();
-    let mode = "easy"
+    mode = "easy"
+    showPlayableSongs();
     return mode;
   })
   hardMode.addEventListener("click", function(){
     removeModeSelectors();
-    let mode = "hard"
+    audioElement.pause();
+    mode = "hard"
+    showPlayableSongs();
     return mode;
   })
   mediumMode.addEventListener("click", function(){
     removeModeSelectors();
-    let mode = "medium"
+    audioElement.pause();
+    mode = "medium"
     return mode;
   })
   expertMode.addEventListener("click", function(){
     removeModeSelectors();
-    let mode = "expert"
+    audioElement.pause();
+    mode = "expert"
     return mode;
   })
+}
+
+function showPlayableSongs(){
+  DOMSelectors.el.insertAdjacentHTML("afterend", `<div id="songContainer">
+  <h3 id="selectSign"></h3>SELECT</h3>
+  </div>`)
+  songs
+    .filter((filteredSongs) => filteredSongs.difficulty === mode)
+    .forEach((playableSongs) => {
+      let songContainer = document.getElementById("songContainer")
+      songContainer.insertAdjacentHTML("beforeend", `      
+      <div class="songCard" id="playableSong">
+      <h4>${playableSongs.title}</h4>
+      <p>${playableSongs.artist}</p>
+      </div>`)
+    });
 }
 
 function removeModeSelectors(){

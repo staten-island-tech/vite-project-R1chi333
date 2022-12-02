@@ -67,7 +67,7 @@ body, h1{
 #modes{
   color: pink;
   position: absolute;
-  top: 20%;
+  top: 23.5%;
   right: 15%;
   font-family: 'Kanit', sans-serif;
   z-index: 3;
@@ -107,4 +107,32 @@ body, h1{
 .changeOpacityQuicker{
   opacity: 0;
   transition-duration: .40s;
+}
+
+h1,h2,h3,h4,p{
+    margin: 0;
+}
+#songContainer{
+    color: pink;
+    font-size: 1.75vw;
+    width: 20vw;
+    text-align: center;
+    position: absolute;
+    right: 20%;
+    display: flex;
+    flex-direction: column;
+    top: 10%;
+}
+
+.songCard{
+    font-family: 'Kanit', sans-serif;
+    background-color: white;
+    margin-top: 5%;
+    border-radius: 30px;  
+    padding-right: 5vw;
+    text-align: left;
+    padding-left: 1.5vw;
+    font-size: 1.5vw;
+    box-shadow: 12px 12px 2px 1px pink;
+    letter-spacing: .1vw;
 }
