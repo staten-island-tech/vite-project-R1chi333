@@ -76,9 +76,44 @@ function addModeSelector() {
   });
   settings.addEventListener("click", function () {
     removeModeSelectors();
-    audioElement.pause();
+    opensettings();
   });
 }
+
+function opensettings(){
+  DOMSelectors.el.insertAdjacentHTML("afterend", `    <div id="settingsmenu">
+  <h3 class="settingtypes">SETTINGS</h3>
+  <div>
+      <h4>keybinds</h4>
+      <form>
+          <input maxlength="1" type="text">
+          <input maxlength="1" type="text">
+          <input maxlength="1" type="text">
+          <input maxlength="1" type="text">
+          <button type="submit"><p>OK</p></button>
+      </form>
+      <h4 class="settingtypes">offset (milliseconds)</h4>
+      <form>
+          <input type="number">
+          <button type="submit"><p>OK</p></button>
+      </form>
+      <h4 class="settingtypes">volume</h4>
+      <div class="slidecontainer">
+          <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+          <p>Value: <span id="demo"></span></p>
+        </div>
+  </div>
+</div>`)
+  var slider = document.getElementById("myRange");
+  var output = document.getElementById("demo");
+  output.innerHTML = slider.value;
+
+  slider.oninput = function() {
+    output.innerHTML = this.value;
+}
+
+}
+
 let artOn = true
 let songContainer = null;
 function showPlayableSongs() {
@@ -92,6 +127,8 @@ function showPlayableSongs() {
     .filter((filteredSongs) => filteredSongs.difficulty === mode)
     .forEach((playableSongs) => {
       songContainer = document.getElementById("songContainer");
+      let albumCoverArt = document.getElementById("albumcoverart")
+      let albumCover = document.getElementById("albumcover")
       songContainer.insertAdjacentHTML(
         "beforeend",
         `      
@@ -100,10 +137,20 @@ function showPlayableSongs() {
       </div>`
       );
       let theSongCard = document.getElementById(`${playableSongs.id}`)
+      theSongCard.addEventListener("click", function(){
+        songContainer.remove();
+        albumCover.remove();
+        albumCoverArt.remove();
+        DOMSelectors.el.insertAdjacentHTML("afterend", `<video id="mv" autoplay>
+        <source src="${playableSongs.mv}" type="video/mp4">
+      </video>`)
+        setupgamemap();
+      })
       theSongCard.addEventListener("mouseover", function(){
         if(artOn === true){
           DOMSelectors.el.insertAdjacentHTML("afterend", `<div class="changeOpacityQuicker" id="albumcover"><img id="albumcoverart" src="${playableSongs.art}" alt=""></div>`)
-          let albumCover = document.getElementById("albumcover")
+          albumCover = document.getElementById("albumcover")
+          albumCoverArt = document.getElementById("albumcoverart")
           albumCover.classList.remove("changeOpacityQuicker")
           albumCover.classList.add("changeOpacityQuickerOn")
           artOn = false
@@ -126,7 +173,21 @@ function showPlayableSongs() {
       })
     });
 }
-
+function setupgamemap(){
+  DOMSelectors.el.insertAdjacentHTML("afterend", `    <div>
+  <div id="gamecontainerback"></div>
+  <div id="gamecontainer">
+      <div id="c" class="vl"></div>
+      <div id="e" class="vl"></div>
+  </div>
+  <div>
+      <div id="circle1" class="circle"></div>
+      <div id="circle2" class="circle"></div>
+      <div id="circle3" class="circle"></div>
+      <div id="circle4" class="circle"></div>
+  </div>
+</div>`)
+}
 function removeModeSelectors() {
   modes.classList.add("changeOpacityQuicker");
   DOMSelectors.ozu.classList.add("changeOpacityQuicker");

@@ -4,15 +4,15 @@ let songs = [
     art: "media/droppopcandy.png",
     audio: "kuritism/erhu.mp3",
     difficulty: "hard",
-    mv: "",
+    mv: "mvs/droppopcandy.mp4",
     id: "one",
   },
   {
     title: "RAD DOGS",
     art: "media/raddogs.png",
-    audio: "kuritism/erhu.mp3",
+    audio: "audio/raddogs.mp3",
     difficulty: "easy",
-    mv: "",
+    mv: "mvs/raddogs.mp4",
     id: "two",
   },
   {

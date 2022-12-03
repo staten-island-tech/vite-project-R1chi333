@@ -171,3 +171,66 @@ h1,h2,h3,h4,p{
   width: 35vw;
   box-shadow: 12px 12px 2px 1px pink;
 }
+#gamecontainer{
+  background-color: rgb(255, 255, 255);
+}
+.vl {
+  position: absolute;
+  border-left: 4px solid pink;
+  height: 100vh;
+}
+#c{
+  left: 40%;
+}
+#e{
+  left: 60%;
+}
+
+.circle{
+  position: absolute;
+  border-radius: 100%;
+  color: rgba(255, 255, 255, 0.459);
+  width: 3.1vw;
+  height: 3.1vw;
+  border: 2px solid;
+  top: 80%;
+}
+#circle1{
+  left: 56%;
+}
+#circle2{
+  left: 51%;
+}
+#circle3{
+  left: 46%;
+}
+#circle4{
+  left: 41%;
+}
+#gamecontainerback{
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.055);
+  width: 20%;
+  height: 100vh;
+  left: 40%;
+}
+#settingsmenu{
+  font-family: 'Kanit', sans-serif;
+  background-color: white;
+  position: absolute;
+  color: black;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 40%;
+  padding: 1%;
+  box-shadow: 12px 12px 2px 1px pink;
+  border-radius: 35px;
+}
+.settingtypes{
+  margin-top: 2%;
+}
+
+#mv{
+  width: 100vw;
+  height: 100vh;
+}
