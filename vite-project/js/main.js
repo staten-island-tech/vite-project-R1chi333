@@ -40,13 +40,13 @@ function addModeSelector() {
   <div class="mode" id="hardMode">
     <h2>HARD</h2>
   </div>
-  <div class="mode" id="expertMode">
-    <h2>EXPERT</h2>
+  <div class="mode" id="settings">
+    <h2>SETTINGS</h2>
 </div>`
   );
   const easyMode = document.getElementById("easyMode");
   const hardMode = document.getElementById("hardMode");
-  const expertMode = document.getElementById("expertMode");
+  const settings = document.getElementById("settings");
   const mediumMode = document.getElementById("mediumMode");
   const modes = document.getElementById("modes");
   setTimeout(() => {
@@ -74,11 +74,9 @@ function addModeSelector() {
     mode = "medium";
     return mode;
   });
-  expertMode.addEventListener("click", function () {
+  settings.addEventListener("click", function () {
     removeModeSelectors();
     audioElement.pause();
-    mode = "expert";
-    return mode;
   });
 }
 let artOn = true

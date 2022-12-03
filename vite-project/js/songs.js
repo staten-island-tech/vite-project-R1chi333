@@ -9,7 +9,7 @@ let songs = [
   },
   {
     title: "RAD DOGS",
-    art: "media/droppopcandy.png",
+    art: "media/raddogs.png",
     audio: "kuritism/erhu.mp3",
     difficulty: "easy",
     mv: "",
@@ -17,7 +17,7 @@ let songs = [
   },
   {
     title: "Erhu",
-    art: "media/droppopcandy.png",
+    art: "media/erhu.png",
     audio: "kuritism/erhu.mp3",
     difficulty: "easy",
     mv: "",
