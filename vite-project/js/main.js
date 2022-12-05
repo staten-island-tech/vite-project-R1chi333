@@ -1,6 +1,7 @@
 import "../styles/style.css";
 import { songs } from "./songs";
 import { Wave } from "@foobar404/wave";
+import { raddogsbeatmap } from "./raddogsbeatmap";
 
 const DOMSelectors = {
   ozu: document.getElementById("ozu"),
@@ -145,6 +146,9 @@ function showPlayableSongs() {
         <source src="${playableSongs.mv}" type="video/mp4">
       </video>`)
         setupgamemap();
+        if(playableSongs.title === "RAD DOGS"){
+          raddogsbeatmap();
+        }
       })
       theSongCard.addEventListener("mouseover", function(){
         if(artOn === true){

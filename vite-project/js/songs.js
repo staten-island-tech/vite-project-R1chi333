@@ -6,6 +6,7 @@ let songs = [
     difficulty: "hard",
     mv: "mvs/droppopcandy.mp4",
     id: "one",
+    beatmap: "droppopcandybeatmap"
   },
   {
     title: "RAD DOGS",
@@ -14,6 +15,7 @@ let songs = [
     difficulty: "easy",
     mv: "mvs/raddogs.mp4",
     id: "two",
+    beatmap: "raddogsbeatmap"
   },
   {
     title: "Erhu",
@@ -22,6 +24,7 @@ let songs = [
     difficulty: "easy",
     mv: "",
     id: "three",
+    beatmap: "erhubeatmap"
   },
 ];
 
