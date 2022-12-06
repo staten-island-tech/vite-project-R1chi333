@@ -28,6 +28,7 @@ DOMSelectors.title.addEventListener("click", function () {
   opening();
 });
 let mode = "";
+let settingsmenu = "off"
 function addModeSelector() {
   DOMSelectors.el.insertAdjacentHTML(
     "afterend",
@@ -56,33 +57,43 @@ function addModeSelector() {
     modes.classList.remove("changeOpacityBack");
   }, 1);
   easyMode.addEventListener("click", function () {
-    audioElement.pause();
-    removeModeSelectors();
-    mode = "easy";
-    showPlayableSongs();
-    return mode;
+    if(settingsmenu === "off"){
+      audioElement.pause();
+      removeModeSelectors();
+      mode = "easy";
+      showPlayableSongs();
+      return mode;
+    }
   });
   hardMode.addEventListener("click", function () {
-    removeModeSelectors();
-    audioElement.pause();
-    mode = "hard";
-    showPlayableSongs();
-    return mode;
+    if(settingsmenu === "off"){
+      removeModeSelectors();
+      audioElement.pause();
+      mode = "hard";
+      showPlayableSongs();
+      return mode;
+    }
   });
   mediumMode.addEventListener("click", function () {
-    removeModeSelectors();
-    audioElement.pause();
-    mode = "medium";
-    return mode;
+    if(settingsmenu === "off"){
+      removeModeSelectors();
+      audioElement.pause();
+      mode = "medium";
+      return mode;
+    }
   });
   settings.addEventListener("click", function () {
-    removeModeSelectorssettings();
-    opensettings();
+    if(settingsmenu === "off"){
+      removeModeSelectorssettings();
+      opensettings();
+      settingsmenu = "on"
+      return settingsmenu;
+    }
   });
 }
 
 function opensettings(){
-  DOMSelectors.el.insertAdjacentHTML("afterend", `       <button id="backarrow">🢀</button>   <div id="settingsmenu">
+  DOMSelectors.el.insertAdjacentHTML("afterend", `       <div id="backarrowthing">🢀</div>   <div id="settingsmenu">
   <h3 class="settingtypes">SETTINGS</h3>
   <div>
       <h4>keybinds</h4>
@@ -112,7 +123,16 @@ function opensettings(){
   slider.oninput = function() {
     output.innerHTML = this.value;
 }
-
+    let backarrowthing = document.getElementById("backarrowthing")
+  backarrowthing.addEventListener("click", function(){
+    let settingsmenupage = document.getElementById("settingsmenu");
+    settingsmenupage.remove();
+    backarrowthing.remove();
+    settingsmenu = "off"
+    modes.classList.remove("changeOpacityQuicker");
+    DOMSelectors.ozu.classList.remove("changeOpacityQuicker");
+    return settingsmenu;
+  })
 }
 
 let artOn = true

@@ -43,18 +43,19 @@ body, h1{
 .margin{
   margin-top: 25%;
 }
-#backarrow{
+#backarrowthing{
   background-color: black;
   position: absolute;
   color: white;
   margin: 1%;
   margin-left: 1.2%;
+  z-index: 100;
 }
-#backarrow:hover{
+#backarrowthing:hover{
   font-size: 3.5vw;
   transition-duration: .2s;
 }
-#backarrow:not(hover){
+#backarrowthing:not(hover){
   font-size: 3vw;
   transition-duration: .2s;
 }
@@ -239,6 +240,7 @@ h1,h2,h3,h4,p{
   padding: 1%;
   box-shadow: 12px 12px 2px 1px pink;
   border-radius: 35px;
+  z-index: 100;
 }
 .settingtypes{
   margin-top: 2%;
