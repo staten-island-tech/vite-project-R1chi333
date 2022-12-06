@@ -43,7 +43,21 @@ body, h1{
 .margin{
   margin-top: 25%;
 }
-
+#backarrow{
+  background-color: black;
+  position: absolute;
+  color: white;
+  margin: 1%;
+  margin-left: 1.2%;
+}
+#backarrow:hover{
+  font-size: 3.5vw;
+  transition-duration: .2s;
+}
+#backarrow:not(hover){
+  font-size: 3vw;
+  transition-duration: .2s;
+}
 #backTop:hover{
   padding: 12%;
   transition-duration: .2s;

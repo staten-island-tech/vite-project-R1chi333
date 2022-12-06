@@ -76,13 +76,13 @@ function addModeSelector() {
     return mode;
   });
   settings.addEventListener("click", function () {
-    removeModeSelectors();
+    removeModeSelectorssettings();
     opensettings();
   });
 }
 
 function opensettings(){
-  DOMSelectors.el.insertAdjacentHTML("afterend", `    <div id="settingsmenu">
+  DOMSelectors.el.insertAdjacentHTML("afterend", `       <button id="backarrow">🢀</button>   <div id="settingsmenu">
   <h3 class="settingtypes">SETTINGS</h3>
   <div>
       <h4>keybinds</h4>
@@ -200,6 +200,16 @@ function removeModeSelectors() {
     DOMSelectors.ozu.remove();
   }, 400);
 }
+
+
+
+function removeModeSelectorssettings() {
+  modes.classList.add("changeOpacityQuicker");
+  DOMSelectors.ozu.classList.add("changeOpacityQuicker");
+}
+
+
+
 function removeModeSelector() {
   const modes = document.getElementById("modes");
   modes.classList.remove("changeOpacity");
