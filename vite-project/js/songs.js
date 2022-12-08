@@ -26,6 +26,15 @@ let songs = [
     id: "three",
     beatmap: "erhubeatmap"
   },
+  {
+    title: "Umbrella Boat",
+    art: "media/erhu.png",
+    audio: "kuritism/erhu.mp3",
+    difficulty: "hard",
+    mv: "",
+    id: "four",
+    beatmap: "umbrellaboatbeatmap"
+  }
 ];
 
 export { songs };

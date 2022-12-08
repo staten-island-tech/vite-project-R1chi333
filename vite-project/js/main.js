@@ -1,7 +1,9 @@
 import "../styles/style.css";
+import "../styles/raddogs.css";
 import { songs } from "./songs";
 import { Wave } from "@foobar404/wave";
 import { raddogsbeatmap } from "./raddogsbeatmap";
+
 
 const DOMSelectors = {
   ozu: document.getElementById("ozu"),
@@ -98,30 +100,31 @@ function opensettings(){
   <div>
       <h4>keybinds</h4>
       <form>
-          <input maxlength="1" type="text">
-          <input maxlength="1" type="text">
-          <input maxlength="1" type="text">
-          <input maxlength="1" type="text">
+          <input id="keybind1" maxlength="1" type="text">
+          <input id="keybind2" maxlength="1" type="text">
+          <input id="keybind3" maxlength="1" type="text">
+          <input id="keybind4" maxlength="1" type="text">
           <button type="submit"><p>OK</p></button>
       </form>
       <h4 class="settingtypes">offset (milliseconds)</h4>
       <form>
-          <input type="number">
+          <input id="offset" type="number">
           <button type="submit"><p>OK</p></button>
       </form>
       <h4 class="settingtypes">volume</h4>
       <div class="slidecontainer">
-          <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-          <p>Value: <span id="demo"></span></p>
+          <input type="range" min="1" max="200" value="100" class="slider" id="volume">
+          <p>Value: <span id="displayvolumevalue"></span>%</p>
         </div>
   </div>
 </div>`)
-  var slider = document.getElementById("myRange");
-  var output = document.getElementById("demo");
-  output.innerHTML = slider.value;
 
-  slider.oninput = function() {
-    output.innerHTML = this.value;
+  var volume = document.getElementById("volume");
+  var displayvolumevalue = document.getElementById("displayvolumevalue");
+  displayvolumevalue.innerHTML = volume.value;
+
+  volume.oninput = function() {
+    displayvolumevalue.innerHTML = this.value;
 }
     let backarrowthing = document.getElementById("backarrowthing")
   backarrowthing.addEventListener("click", function(){
@@ -197,6 +200,10 @@ function showPlayableSongs() {
       })
     });
 }
+let keybindOne = "s"
+let keybindTwo = "d"
+let keybindThree = "k"
+let keybindFour = "l"
 function setupgamemap(){
   DOMSelectors.el.insertAdjacentHTML("afterend", `    <div>
   <div id="gamecontainerback"></div>
@@ -212,6 +219,54 @@ function setupgamemap(){
   </div>
 </div>`)
 }
+  window.addEventListener("keydown", (event) => {
+    if(event.key === keybindOne){
+      let circleOne = document.getElementById("circle4")
+      circleOne.classList.add("clicked")
+      setTimeout(()=> {
+        circleOne.classList.remove("clicked")
+      },100)
+      const notelineone = Array.from(
+        document.querySelectorAll(".note1")
+      ).pop();
+      notelineone.remove();
+    }
+    if(event.key === keybindTwo){
+      let circleTwo = document.getElementById("circle3")
+      circleTwo.classList.add("clicked")
+      setTimeout(()=> {
+        circleTwo.classList.remove("clicked")
+      },100) 
+      const notelinetwo = Array.from(
+        document.querySelectorAll(".note2")
+      ).pop();
+      notelinetwo.remove();
+    }
+    if(event.key === keybindThree){
+      let circleThree = document.getElementById("circle2")
+      circleThree.classList.add("clicked")
+      setTimeout(()=> {
+        circleThree.classList.remove("clicked")
+      },100) 
+      const notelinethree = Array.from(
+        document.querySelectorAll(".note3")
+      ).pop();
+      notelinethree.remove();
+    }
+    if(event.key === keybindFour){
+      let circleFour = document.getElementById("circle1")
+      circleFour.classList.add("clicked")
+      setTimeout(()=> {
+        circleFour.classList.remove("clicked")
+      },100) 
+      const notelinefour = Array.from(
+        document.querySelectorAll(".note4")
+      ).pop();
+      // let place = notelinefour.getBoundingClientRect();
+      // console.log(place)
+      notelinefour.remove();
+    }
+  })
 function removeModeSelectors() {
   modes.classList.add("changeOpacityQuicker");
   DOMSelectors.ozu.classList.add("changeOpacityQuicker");

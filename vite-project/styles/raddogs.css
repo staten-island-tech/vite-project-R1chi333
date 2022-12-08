@@ -1,0 +1,38 @@
+
+.note1{
+    left: 41%;
+}
+.note2{
+    left: 46%;
+}
+.note3{
+    left: 51%;
+}
+.note4{
+    left: 56%;
+}
+.note{
+    top: -2vh;
+    position: absolute;
+    border-radius: 100%;
+    color: rgba(255, 255, 255, 0.459);
+    width: 3.1vw;
+    height: 3.1vw;
+    border: 2px solid;
+    background-color: pink;
+    z-index: 100;
+}
+.down{
+    animation-name: down;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+@keyframes down {
+    from{
+        top: -2vh;   
+    }
+    to{
+        top: 100vh;
+    }
+}
