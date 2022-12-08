@@ -262,8 +262,8 @@ function setupgamemap(){
       const notelinefour = Array.from(
         document.querySelectorAll(".note4")
       ).pop();
-      // let place = notelinefour.getBoundingClientRect();
-      // console.log(place)
+      let place = notelinefour.getBoundingClientRect();
+      console.log(place)
       notelinefour.remove();
     }
   })
