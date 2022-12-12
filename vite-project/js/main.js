@@ -263,10 +263,17 @@ function setupgamemap(){
         document.querySelectorAll(".note4")
       ).pop();
       let place = notelinefour.getBoundingClientRect();
-      console.log(place)
-      notelinefour.remove();
+      console.log(place.top)
+      if(place.top < 617){
+        notelinefour.remove();
+      }
     }
   })
+function scoring () {
+  if(place.top < 617){
+    notelinefour.remove();
+  }
+}
 function removeModeSelectors() {
   modes.classList.add("changeOpacityQuicker");
   DOMSelectors.ozu.classList.add("changeOpacityQuicker");
