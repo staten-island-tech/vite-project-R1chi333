@@ -264,15 +264,26 @@ function setupgamemap(){
       ).pop();
       let place = notelinefour.getBoundingClientRect();
       console.log(place.top)
-      if(place.top < 617){
+      if((place.top >= 617 && place.top <= 694)||(place.top > 889 && place.top <= 895)){
         notelinefour.remove();
+        console.log("bad")
+      }
+      if((place.top > 694 && place.top <= 721)||(place.top > 869 && place.top < 895)){
+        notelinefour.remove();
+        console.log("good")
+      }
+      if((place.top > 721 && place.top <= 750)||(place.top > 863 && place.top <= 869)){
+        notelinefour.remove();
+        console.log("great")
+      }
+      if (place.top > 750 && place.top < 863){
+        notelinefour.remove();
+        console.log("perfect")
       }
     }
   })
 function scoring () {
-  if(place.top < 617){
-    notelinefour.remove();
-  }
+
 }
 function removeModeSelectors() {
   modes.classList.add("changeOpacityQuicker");
