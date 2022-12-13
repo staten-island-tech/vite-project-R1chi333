@@ -219,6 +219,8 @@ function setupgamemap(){
   </div>
 </div>`)
 }
+let place = null
+let usedkeybind = null
   window.addEventListener("keydown", (event) => {
     if(event.key === keybindOne){
       let circleOne = document.getElementById("circle4")
@@ -254,6 +256,7 @@ function setupgamemap(){
       notelinethree.remove();
     }
     if(event.key === keybindFour){
+      usedkeybind = "four"
       let circleFour = document.getElementById("circle1")
       circleFour.classList.add("clicked")
       setTimeout(()=> {
@@ -262,28 +265,29 @@ function setupgamemap(){
       const notelinefour = Array.from(
         document.querySelectorAll(".note4")
       ).pop();
-      let place = notelinefour.getBoundingClientRect();
+      place = notelinefour.getBoundingClientRect();
       console.log(place.top)
-      if((place.top >= 617 && place.top <= 694)||(place.top > 889 && place.top <= 895)){
-        notelinefour.remove();
-        console.log("bad")
-      }
-      if((place.top > 694 && place.top <= 721)||(place.top > 869 && place.top < 895)){
-        notelinefour.remove();
-        console.log("good")
-      }
-      if((place.top > 721 && place.top <= 750)||(place.top > 863 && place.top <= 869)){
-        notelinefour.remove();
-        console.log("great")
-      }
-      if (place.top > 750 && place.top < 863){
-        notelinefour.remove();
-        console.log("perfect")
-      }
+      scoring();
+      return place;
     }
   })
 function scoring () {
-
+  if((place.top >= 617 && place.top <= 694)||(place.top > 889 && place.top <= 895)){
+    `noteline${usedkeybind}`.remove();
+    console.log("bad")
+  }
+  if((place.top > 694 && place.top <= 721)||(place.top > 869 && place.top < 895)){
+    `noteline${usedkeybind}`.remove();
+    console.log("good")
+  }
+  if((place.top > 721 && place.top <= 750)||(place.top > 863 && place.top <= 869)){
+    `noteline${usedkeybind}`.remove();
+    console.log("great")
+  }
+  if (place.top > 750 && place.top < 863){
+    `noteline${usedkeybind}`.remove();
+    console.log("perfect")
+  }
 }
 function removeModeSelectors() {
   modes.classList.add("changeOpacityQuicker");
