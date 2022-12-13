@@ -3,8 +3,6 @@ import "../styles/raddogs.css";
 import { songs } from "./songs";
 import { Wave } from "@foobar404/wave";
 import { raddogsbeatmap } from "./raddogsbeatmap";
-
-
 const DOMSelectors = {
   ozu: document.getElementById("ozu"),
   backTop: document.getElementById("backTop"),
@@ -12,17 +10,13 @@ const DOMSelectors = {
   el: document.getElementById("el"),
   back: document.getElementById("back"),
 };
-
 let audioElement = document.querySelector("#audio");
 let canvasElement = document.querySelector("#osuBase");
 let wave = new Wave(audioElement, canvasElement);
-
 DOMSelectors.ozu.addEventListener("click", function () {
   audioElement.play();
 });
-
 let open = false;
-
 DOMSelectors.backTop.addEventListener("click", function () {
   opening();
 });
@@ -93,7 +87,6 @@ function addModeSelector() {
     }
   });
 }
-
 function opensettings(){
   DOMSelectors.el.insertAdjacentHTML("afterend", `       <div id="backarrowthing">🢀</div>   <div id="settingsmenu">
   <h3 class="settingtypes">SETTINGS</h3>
@@ -118,7 +111,6 @@ function opensettings(){
         </div>
   </div>
 </div>`)
-
   var volume = document.getElementById("volume");
   var displayvolumevalue = document.getElementById("displayvolumevalue");
   displayvolumevalue.innerHTML = volume.value;
@@ -137,7 +129,6 @@ function opensettings(){
     return settingsmenu;
   })
 }
-
 let artOn = true
 let songContainer = null;
 function showPlayableSongs() {
@@ -220,7 +211,7 @@ function setupgamemap(){
 </div>`)
 }
 let place = null
-let usedkeybind = null
+let noteline = null
   window.addEventListener("keydown", (event) => {
     if(event.key === keybindOne){
       let circleOne = document.getElementById("circle4")
@@ -228,10 +219,13 @@ let usedkeybind = null
       setTimeout(()=> {
         circleOne.classList.remove("clicked")
       },100)
-      const notelineone = Array.from(
+      noteline = Array.from(
         document.querySelectorAll(".note1")
       ).pop();
-      notelineone.remove();
+      place = noteline.getBoundingClientRect();
+      console.log(place.top)
+      scoring();
+      return place;
     }
     if(event.key === keybindTwo){
       let circleTwo = document.getElementById("circle3")
@@ -239,10 +233,13 @@ let usedkeybind = null
       setTimeout(()=> {
         circleTwo.classList.remove("clicked")
       },100) 
-      const notelinetwo = Array.from(
+      noteline = Array.from(
         document.querySelectorAll(".note2")
       ).pop();
-      notelinetwo.remove();
+      place = noteline.getBoundingClientRect();
+      console.log(place.top)
+      scoring();
+      return place;
     }
     if(event.key === keybindThree){
       let circleThree = document.getElementById("circle2")
@@ -250,22 +247,24 @@ let usedkeybind = null
       setTimeout(()=> {
         circleThree.classList.remove("clicked")
       },100) 
-      const notelinethree = Array.from(
+      noteline = Array.from(
         document.querySelectorAll(".note3")
       ).pop();
-      notelinethree.remove();
+      place = noteline.getBoundingClientRect();
+      console.log(place.top)
+      scoring();
+      return place;
     }
     if(event.key === keybindFour){
-      usedkeybind = "four"
       let circleFour = document.getElementById("circle1")
       circleFour.classList.add("clicked")
       setTimeout(()=> {
         circleFour.classList.remove("clicked")
       },100) 
-      const notelinefour = Array.from(
+      noteline = Array.from(
         document.querySelectorAll(".note4")
       ).pop();
-      place = notelinefour.getBoundingClientRect();
+      place = noteline.getBoundingClientRect();
       console.log(place.top)
       scoring();
       return place;
@@ -273,19 +272,19 @@ let usedkeybind = null
   })
 function scoring () {
   if((place.top >= 617 && place.top <= 694)||(place.top > 889 && place.top <= 895)){
-    `noteline${usedkeybind}`.remove();
+    notelinefour.remove();
     console.log("bad")
   }
   if((place.top > 694 && place.top <= 721)||(place.top > 869 && place.top < 895)){
-    `noteline${usedkeybind}`.remove();
+    noteline.remove();
     console.log("good")
   }
   if((place.top > 721 && place.top <= 750)||(place.top > 863 && place.top <= 869)){
-    `noteline${usedkeybind}`.remove();
+    noteline.remove();
     console.log("great")
   }
   if (place.top > 750 && place.top < 863){
-    `noteline${usedkeybind}`.remove();
+    noteline.remove();
     console.log("perfect")
   }
 }
@@ -297,16 +296,10 @@ function removeModeSelectors() {
     DOMSelectors.ozu.remove();
   }, 400);
 }
-
-
-
 function removeModeSelectorssettings() {
   modes.classList.add("changeOpacityQuicker");
   DOMSelectors.ozu.classList.add("changeOpacityQuicker");
 }
-
-
-
 function removeModeSelector() {
   const modes = document.getElementById("modes");
   modes.classList.remove("changeOpacity");
@@ -332,7 +325,6 @@ function opening() {
     return open;
   }
 }
-
 //get DPI
 let dpi = window.devicePixelRatio;
 //get canvas
@@ -355,7 +347,6 @@ function fix_dpi() {
   canvas.setAttribute("width", style_width * dpi);
 }
 fix_dpi();
-
 wave.addAnimation(
   new wave.animations.Glob({
     count: 100,
