@@ -195,8 +195,11 @@ let keybindOne = "s"
 let keybindTwo = "d"
 let keybindThree = "k"
 let keybindFour = "l"
+let combonum = null;
 function setupgamemap(){
-  DOMSelectors.el.insertAdjacentHTML("afterend", `    <div>
+  DOMSelectors.el.insertAdjacentHTML("afterend", `      <div id="combo">
+  <p id="combonum"></p>
+</div>  <div>
   <div id="gamecontainerback"></div>
   <div id="gamecontainer">
       <div id="c" class="vl"></div>
@@ -209,6 +212,8 @@ function setupgamemap(){
       <div id="circle4" class="circle"></div>
   </div>
 </div>`)
+ combonum = document.getElementById("combonum")
+ return combonum;
 }
 let place = null
 let noteline = null
@@ -270,22 +275,73 @@ let noteline = null
       return place;
     }
   })
+let badcount = 0
+let goodcount = 0
+let greatcount = 0
+let perfectcount = 0
+let combo = 0
+function combocounter(){
+  combo++;
+  console.log(combo)
+  combonum.innerHTML = `${combo}`;
+}
 function scoring () {
   if((place.top >= 617 && place.top <= 694)||(place.top > 889 && place.top <= 895)){
-    notelinefour.remove();
+    noteline.remove();
+    DOMSelectors.el.insertAdjacentHTML("afterend", `    <div id="scoreannc">
+    <p id="bad">BAD</p>
+</div>`)
+    let bad = document.getElementById("bad")
+    badcount++;
+    combocounter();
+    setTimeout(() => {
+      bad.remove();
+    }, 200)
     console.log("bad")
+    return badcount;
   }
   if((place.top > 694 && place.top <= 721)||(place.top > 869 && place.top < 895)){
     noteline.remove();
+    DOMSelectors.el.insertAdjacentHTML("afterend", `    <div id="scoreannc">
+    <p id="good">GOOD</p>
+</div>`)
+  let good = document.getElementById("good")
+  goodcount++;
+  combocounter();
+  setTimeout(() => {
+    good.remove();
+  }, 200)
     console.log("good")
+    return goodcount
   }
   if((place.top > 721 && place.top <= 750)||(place.top > 863 && place.top <= 869)){
     noteline.remove();
+    DOMSelectors.el.insertAdjacentHTML("afterend", `    <div id="scoreannc">
+    <p id="great">PERFECT</p>
+</div>`)
+  let great = document.getElementById("great")
+  greatcount++;
+  combocounter();
+  setTimeout(() => {
+  great.remove();
+  }, 200)
     console.log("great")
+    return greatcount;
   }
   if (place.top > 750 && place.top < 863){
     noteline.remove();
+    DOMSelectors.el.insertAdjacentHTML("afterend", `    <div id="scoreannc">
+    <p id="perfect">PERFECT</p>
+</div>`)
+  let perfect = document.getElementById("perfect")
+  perfectcount++;
+  combocounter();
+  setTimeout(() => {
+    perfect.remove();
+  }, 200)
     console.log("perfect")
+    console.log(perfectcount)
+    return perfectcount;
   }
 }
 function removeModeSelectors() {
