@@ -285,6 +285,14 @@ function combocounter(){
   console.log(combo)
   combonum.innerHTML = `${combo}`;
 }
+function gonegone (){
+  if((place.top < 895)){
+    noteline.remove();
+    combo = 0
+    return combo;
+  }
+}
+intervalThingy = setInterval(gonegone, 1000);
 function scoring () {
   if((place.top >= 617 && place.top <= 694)||(place.top > 889 && place.top <= 895)){
     noteline.remove();
