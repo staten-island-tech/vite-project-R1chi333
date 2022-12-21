@@ -212,6 +212,14 @@ function setupgamemap(){
       <div id="circle4" class="circle"></div>
   </div>
 </div>`)
+  intervalThingy = setInterval(gonegone, 100);
+  function gonegone (){
+    if((place.top < 895)){
+      noteline.remove();
+      combo = 0
+      return combo;
+    }
+  }
  combonum = document.getElementById("combonum")
  return combonum;
 }
@@ -272,6 +280,7 @@ let noteline = null
       place = noteline.getBoundingClientRect();
       console.log(place.top)
       scoring();
+      gonegone();
       return place;
     }
   })
@@ -285,14 +294,7 @@ function combocounter(){
   console.log(combo)
   combonum.innerHTML = `${combo}`;
 }
-function gonegone (){
-  if((place.top < 895)){
-    noteline.remove();
-    combo = 0
-    return combo;
-  }
-}
-intervalThingy = setInterval(gonegone, 1000);
+
 function scoring () {
   if((place.top >= 617 && place.top <= 694)||(place.top > 889 && place.top <= 895)){
     noteline.remove();
@@ -325,7 +327,7 @@ function scoring () {
   if((place.top > 721 && place.top <= 750)||(place.top > 863 && place.top <= 869)){
     noteline.remove();
     DOMSelectors.el.insertAdjacentHTML("afterend", `    <div id="scoreannc">
-    <p id="great">PERFECT</p>
+    <p id="great">GREAT</p>
 </div>`)
   let great = document.getElementById("great")
   greatcount++;
