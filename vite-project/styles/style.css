@@ -280,10 +280,16 @@ h1,h2,h3,h4,p{
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-#combo{
+#miss{
+  color: #ef5350;
+}
+#combocon{
   position: absolute;
   left: 75vw;
   top: 35vh;
   font-size: 4vw;
   color: white;
+}
+input{
+  text-align: center;
 }

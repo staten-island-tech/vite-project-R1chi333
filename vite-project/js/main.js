@@ -2,8 +2,16 @@ import "../styles/style.css";
 import "../styles/raddogs.css";
 import { songs } from "./songs";
 import { Wave } from "@foobar404/wave";
-import { raddogsbeatmap } from "./raddogsbeatmap";
-import "./raddogsbeatmap";
+import { combo, combocounterup, misscount, raddogsbeatmap, combomultiplier, yaycombo } from "./raddogsbeatmap";
+
+//default keybinds
+let score = 0;
+let keybindOne = "s"
+let keybindTwo = "d"
+let keybindThree = "k"
+let keybindFour = "l"
+
+//titlepage DOMS
 const DOMSelectors = {
   ozu: document.getElementById("ozu"),
   backTop: document.getElementById("backTop"),
@@ -11,12 +19,16 @@ const DOMSelectors = {
   el: document.getElementById("el"),
   back: document.getElementById("back"),
 };
+
+//stuff for audio visualizer 
 let audioElement = document.querySelector("#audio");
 let canvasElement = document.querySelector("#osuBase");
 let wave = new Wave(audioElement, canvasElement);
 DOMSelectors.ozu.addEventListener("click", function () {
   audioElement.play();
 });
+
+//open/closing menu
 let open = false;
 DOMSelectors.backTop.addEventListener("click", function () {
   opening();
@@ -24,6 +36,26 @@ DOMSelectors.backTop.addEventListener("click", function () {
 DOMSelectors.title.addEventListener("click", function () {
   opening();
 });
+// + animation for opening/closing menus
+function opening() {
+  if (open === false) {
+    addModeSelector();
+    DOMSelectors.ozu.classList.remove("slideBack");
+    DOMSelectors.ozu.classList.add("slide");
+    open = true;
+    console.log(open);
+    return open;
+  } else {
+    removeModeSelector();
+    DOMSelectors.ozu.classList.add("slideBack");
+    DOMSelectors.ozu.classList.remove("slide");
+    open = false;
+    console.log(open);
+    return open;
+  }
+}
+
+//making the HTML for mode + settings / making them selectable
 let mode = "";
 let settingsmenu = "off"
 function addModeSelector() {
@@ -76,6 +108,7 @@ function addModeSelector() {
       removeModeSelectors();
       audioElement.pause();
       mode = "medium";
+      showPlayableSongs();
       return mode;
     }
   });
@@ -88,37 +121,34 @@ function addModeSelector() {
     }
   });
 }
+
+//user chooses settings
 function opensettings(){
   DOMSelectors.el.insertAdjacentHTML("afterend", `       <div id="backarrowthing">🢀</div>   <div id="settingsmenu">
   <h3 class="settingtypes">SETTINGS</h3>
   <div>
       <h4>keybinds</h4>
       <form>
-          <input id="keybind1" maxlength="1" type="text">
-          <input id="keybind2" maxlength="1" type="text">
-          <input id="keybind3" maxlength="1" type="text">
-          <input id="keybind4" maxlength="1" type="text">
-          <button type="submit"><p>OK</p></button>
-      </form>
-      <h4 class="settingtypes">offset (milliseconds)</h4>
-      <form>
-          <input id="offset" type="number">
-          <button type="submit"><p>OK</p></button>
-      </form>
-      <h4 class="settingtypes">volume</h4>
-      <div class="slidecontainer">
-          <input type="range" min="1" max="200" value="100" class="slider" id="volume">
-          <p>Value: <span id="displayvolumevalue"></span>%</p>
-        </div>
+          <input id="keybind1" maxlength="1" type="text" placeholder="S">
+          <input id="keybind2" maxlength="1" type="text" placeholder="D">
+          <input id="keybind3" maxlength="1" type="text" placeholder="K">
+          <input id="keybind4" maxlength="1" type="text" placeholder="L">
+          <button id="confirmkeybinds" type="submit"><p>OK</p></button>
+      <h4 class="settingtypes">THEME CHANGER to pass project ig :D</h4>
   </div>
 </div>`)
-  var volume = document.getElementById("volume");
-  var displayvolumevalue = document.getElementById("displayvolumevalue");
-  displayvolumevalue.innerHTML = volume.value;
-
-  volume.oninput = function() {
-    displayvolumevalue.innerHTML = this.value;
-}
+  let confirmkeybinds = document.getElementById("confirmkeybinds")
+  let keybind1input = document.getElementById("keybind1")
+  let keybind2input = document.getElementById("keybind2")
+  let keybind3input = document.getElementById("keybind3")
+  let keybind4input = document.getElementById("keybind4")
+  confirmkeybinds.addEventListener("click", function(e){
+    e.preventDefault();
+    keybindOne = keybind1input.value
+    keybindTwo = keybind2input.value
+    keybindThree = keybind3input.value
+    keybindFour = keybind4input.value
+  })
     let backarrowthing = document.getElementById("backarrowthing")
   backarrowthing.addEventListener("click", function(){
     let settingsmenupage = document.getElementById("settingsmenu");
@@ -130,6 +160,8 @@ function opensettings(){
     return settingsmenu;
   })
 }
+
+//filters the songs playable based on difficulty 
 let artOn = true
 let songContainer = null;
 function showPlayableSongs() {
@@ -151,19 +183,27 @@ function showPlayableSongs() {
       <div class="songCard" id="${playableSongs.id}">
       <h4>${playableSongs.title}</h4>
       </div>`
-      );
-      let theSongCard = document.getElementById(`${playableSongs.id}`)
-      theSongCard.addEventListener("click", function(){
+      );                                                                    //HTML for song selection menu
+      let theSongCard = document.getElementById(`${playableSongs.id}`)      //its probably bad that I have no clue how my own code works anymore
+      theSongCard.addEventListener("click", function(){                     //removes the playable song selection page ig
         songContainer.remove();
         albumCover.remove();
         albumCoverArt.remove();
         DOMSelectors.el.insertAdjacentHTML("afterend", `<video id="mv" autoplay>
         <source src="${playableSongs.mv}" type="video/mp4">
       </video>`)
-        setupgamemap();
+      let themvthatsplaying = document.getElementById("mv")
+      themvthatsplaying.onended = function() {
+        alert("The audio has ended");
+      };
+        setupgamemap();                                                         //game technically starts here
         if(playableSongs.title === "RAD DOGS"){
           raddogsbeatmap();
+        }                                                                   
+        if(playableSongs.title === "Erhu"){                            
+          console.log("IT WORKS??")
         }
+      return themvthatsplaying;
       })
       theSongCard.addEventListener("mouseover", function(){
         if(artOn === true){
@@ -192,13 +232,14 @@ function showPlayableSongs() {
       })
     });
 }
-let keybindOne = "s"
-let keybindTwo = "d"
-let keybindThree = "k"
-let keybindFour = "l"
+
 let combonum = null;
+let place = null
+let noteline = null
+
+//creates the playmat
 function setupgamemap(){
-  DOMSelectors.el.insertAdjacentHTML("afterend", `      <div id="combo">
+  DOMSelectors.el.insertAdjacentHTML("afterend", `      <div id="combocon">
   <p id="combonum"></p>
 </div>  <div>
   <div id="gamecontainerback"></div>
@@ -213,87 +254,80 @@ function setupgamemap(){
       <div id="circle4" class="circle"></div>
   </div>
 </div>`)
-  // intervalThingy = setInterval(gonegone, 100);
-  // function gonegone (){
-  //   if((place.top < 895)){
-  //     noteline.remove();
-  //     combo = 0
-  //     return combo;
-  //   }
-  // }
  combonum = document.getElementById("combonum")
  return combonum;
 }
-let place = null
-let noteline = null
-  window.addEventListener("keydown", (event) => {
-    if(event.key === keybindOne){
-      let circleOne = document.getElementById("circle4")
-      circleOne.classList.add("clicked")
-      setTimeout(()=> {
-        circleOne.classList.remove("clicked")
-      },100)
-      noteline = Array.from(
-        document.querySelectorAll(".note1")
-      ).pop();
-      place = noteline.getBoundingClientRect();
-      console.log(place.top)
-      scoring();
-      return place;
-    }
-    if(event.key === keybindTwo){
-      let circleTwo = document.getElementById("circle3")
-      circleTwo.classList.add("clicked")
-      setTimeout(()=> {
-        circleTwo.classList.remove("clicked")
-      },100) 
-      noteline = Array.from(
-        document.querySelectorAll(".note2")
-      ).pop();
-      place = noteline.getBoundingClientRect();
-      console.log(place.top)
-      scoring();
-      return place;
-    }
-    if(event.key === keybindThree){
-      let circleThree = document.getElementById("circle2")
-      circleThree.classList.add("clicked")
-      setTimeout(()=> {
-        circleThree.classList.remove("clicked")
-      },100) 
-      noteline = Array.from(
-        document.querySelectorAll(".note3")
-      ).pop();
-      place = noteline.getBoundingClientRect();
-      console.log(place.top)
-      scoring();
-      return place;
-    }
-    if(event.key === keybindFour){
-      let circleFour = document.getElementById("circle1")
-      circleFour.classList.add("clicked")
-      setTimeout(()=> {
-        circleFour.classList.remove("clicked")
-      },100) 
-      noteline = Array.from(
-        document.querySelectorAll(".note4")
-      ).pop();
-      place = noteline.getBoundingClientRect();
-      console.log(place.top)
-      scoring();
-      gonegone();
-      return place;
-    }
-  })
+
+//makes keybinds interactable
+window.addEventListener("keydown", (event) => {
+  if(event.key === keybindOne){
+    let circleOne = document.getElementById("circle4")    //animation to show keybind was clicked
+    circleOne.classList.add("clicked")
+    setTimeout(()=> {
+      circleOne.classList.remove("clicked")
+    },100)
+    noteline = Array.from(
+      document.querySelectorAll(".note1")          //gets the last element of the class/node
+    ).pop();
+    place = noteline.getBoundingClientRect();     //gets coordinates 
+    console.log(place.top)
+     scoring();
+    return place;
+  }
+  if(event.key === keybindTwo){
+    let circleTwo = document.getElementById("circle3")
+    circleTwo.classList.add("clicked")
+    setTimeout(()=> {
+      circleTwo.classList.remove("clicked")
+    },100) 
+    noteline = Array.from(
+      document.querySelectorAll(".note2")
+    ).pop();
+    place = noteline.getBoundingClientRect();
+    console.log(place.top)
+    scoring();
+    return place;
+  }
+  if(event.key === keybindThree){
+    let circleThree = document.getElementById("circle2")
+    circleThree.classList.add("clicked")
+    setTimeout(()=> {
+      circleThree.classList.remove("clicked")
+    },100) 
+    noteline = Array.from(
+      document.querySelectorAll(".note3")
+    ).pop();
+    place = noteline.getBoundingClientRect();
+    console.log(place.top)
+    scoring();
+    return place;
+  }
+  if(event.key === keybindFour){
+    let circleFour = document.getElementById("circle1")
+    circleFour.classList.add("clicked")
+    setTimeout(()=> {
+      circleFour.classList.remove("clicked")
+    },100) 
+    noteline = Array.from(
+      document.querySelectorAll(".note4")
+    ).pop();
+    place = noteline.getBoundingClientRect();
+    console.log(place.top)
+    scoring();
+    return place;
+  }
+})
+
+//scoring the game
 let badcount = 0
 let goodcount = 0
 let greatcount = 0
 let perfectcount = 0
-let combo = 0
 function combocounter(){
-  combo++;
+  combocounterup(); 
   console.log(combo)
   combonum.innerHTML = `${combo}`;
+  return combo;
 }
 
 function scoring () {
@@ -304,11 +338,15 @@ function scoring () {
 </div>`)
     let bad = document.getElementById("bad")
     badcount++;
+    yaycombo();
+    score = (score + (50*combomultiplier));
     combocounter();
     setTimeout(() => {
       bad.remove();
     }, 200)
     console.log("bad")
+    console.log(score)
+    console.log(combomultiplier)
     return badcount;
   }
   if((place.top > 694 && place.top <= 721)||(place.top > 869 && place.top < 895)){
@@ -318,11 +356,15 @@ function scoring () {
 </div>`)
   let good = document.getElementById("good")
   goodcount++;
+  yaycombo();
+  score = (score + (100*combomultiplier));
   combocounter();
   setTimeout(() => {
     good.remove();
   }, 200)
     console.log("good")
+    console.log(score)
+    console.log(combomultiplier)
     return goodcount
   }
   if((place.top > 721 && place.top <= 750)||(place.top > 863 && place.top <= 869)){
@@ -332,11 +374,15 @@ function scoring () {
 </div>`)
   let great = document.getElementById("great")
   greatcount++;
+  yaycombo();
+  score = (score + (200*combomultiplier));
   combocounter();
   setTimeout(() => {
   great.remove();
   }, 200)
     console.log("great")
+    console.log(score)
+    console.log(combomultiplier)
     return greatcount;
   }
   if (place.top > 750 && place.top < 863){
@@ -346,12 +392,15 @@ function scoring () {
 </div>`)
   let perfect = document.getElementById("perfect")
   perfectcount++;
+  yaycombo();
+  score = (score + (300*combomultiplier));
   combocounter();
   setTimeout(() => {
     perfect.remove();
   }, 200)
     console.log("perfect")
-    console.log(perfectcount)
+    console.log(score)
+    console.log(combomultiplier)
     return perfectcount;
   }
 }
@@ -375,23 +424,10 @@ function removeModeSelector() {
     modes.remove();
   }, "1000");
 }
-function opening() {
-  if (open === false) {
-    addModeSelector();
-    DOMSelectors.ozu.classList.remove("slideBack");
-    DOMSelectors.ozu.classList.add("slide");
-    open = true;
-    console.log(open);
-    return open;
-  } else {
-    removeModeSelector();
-    DOMSelectors.ozu.classList.add("slideBack");
-    DOMSelectors.ozu.classList.remove("slide");
-    open = false;
-    console.log(open);
-    return open;
-  }
-}
+
+//results page 
+
+//no blurry canvas code
 //get DPI
 let dpi = window.devicePixelRatio;
 //get canvas

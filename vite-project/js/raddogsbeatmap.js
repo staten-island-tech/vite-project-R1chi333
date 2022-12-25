@@ -1,13 +1,42 @@
 
 let el = document.getElementById("el")
+let theplace = null;
 function missthingy(){
   let ahhhnote = document.getElementById("ahhhnote")
   setTimeout(() => {
-    ahhhnote.remove();
-    console.log(combonum)
+    theplace = ahhhnote.getBoundingClientRect();
+    if (theplace.top >= 960){
+      console.log(theplace.top)
+      combo = 0
+      combomultiplier = .99
+      console.log(combomultiplier)
+      combonum.innerHTML = "";
+      el.insertAdjacentHTML("afterend", `    <div id="scoreannc">
+      <p id="miss">MISS</p>
+  </div>`)
+      ahhhnote.remove();
+      let miss = document.getElementById("miss")
+      misscount++;
+      setTimeout(() => {
+        miss.remove();
+      }, 200)
+      return theplace
+    }
   }, 1500)
 }
 function raddogsbeatmap(){
+    setTimeout(() => {
+        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note4 down"></div>`)
+        missthingy();
+     }, 5000)
+    setTimeout(() => {
+        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note4 down"></div>`)
+        missthingy();
+     }, 4000)
+    setTimeout(() => {
+        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note4 down"></div>`)
+        missthingy();
+      }, 3000)
     setTimeout(() => {
         el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note4 down"></div>`)
         missthingy();
@@ -103,3 +132,12 @@ function raddogsbeatmap(){
 }
 
 export { raddogsbeatmap };
+export let combo = 0;
+export let misscount = 0;
+export function combocounterup() {
+  combo++;
+}
+export let combomultiplier = .99;
+export function yaycombo() {
+  combomultiplier = (combomultiplier+0.01);
+}
