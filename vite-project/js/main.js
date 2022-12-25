@@ -3,6 +3,7 @@ import "../styles/raddogs.css";
 import { songs } from "./songs";
 import { Wave } from "@foobar404/wave";
 import { raddogsbeatmap } from "./raddogsbeatmap";
+import "./raddogsbeatmap";
 const DOMSelectors = {
   ozu: document.getElementById("ozu"),
   backTop: document.getElementById("backTop"),
@@ -212,14 +213,14 @@ function setupgamemap(){
       <div id="circle4" class="circle"></div>
   </div>
 </div>`)
-  intervalThingy = setInterval(gonegone, 100);
-  function gonegone (){
-    if((place.top < 895)){
-      noteline.remove();
-      combo = 0
-      return combo;
-    }
-  }
+  // intervalThingy = setInterval(gonegone, 100);
+  // function gonegone (){
+  //   if((place.top < 895)){
+  //     noteline.remove();
+  //     combo = 0
+  //     return combo;
+  //   }
+  // }
  combonum = document.getElementById("combonum")
  return combonum;
 }
