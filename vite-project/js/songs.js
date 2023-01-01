@@ -6,7 +6,8 @@ let songs = [
     difficulty: "hard",
     mv: "mvs/droppopcandy.mp4",
     id: "one",
-    beatmap: "droppopcandybeatmap"
+    beatmap: "droppopcandybeatmap",
+    fullcombo: 100
   },
   {
     title: "RAD DOGS",

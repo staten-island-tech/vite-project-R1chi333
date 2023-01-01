@@ -2,7 +2,7 @@ import "../styles/style.css";
 import "../styles/raddogs.css";
 import { songs } from "./songs";
 import { Wave } from "@foobar404/wave";
-import { combo, combocounterup, misscount, raddogsbeatmap, combomultiplier, yaycombo } from "./raddogsbeatmap";
+import { combo, combocounterup, misscount, raddogsbeatmap, combomultiplier, yaycombo, droppopcandybeatmap } from "./raddogsbeatmap";
 
 //default keybinds
 let score = 0;
@@ -192,11 +192,13 @@ function showPlayableSongs() {
         DOMSelectors.el.insertAdjacentHTML("afterend", `<video id="mv" autoplay>
         <source src="${playableSongs.mv}" type="video/mp4">
       </video>`)
-      let themvthatsplaying = document.getElementById("mv")                 //end
+      let themvthatsplaying = document.getElementById("mv") 
+      themvthatsplaying.volume = 0.2;                //end
       themvthatsplaying.onended = function() {
         wholegamecon.remove();
         themvthatsplaying.remove();
         combonum.remove();
+        let rankingresult = null;
         let rankingpercent = ((((perfectcount*4)+(greatcount*3)+(goodcount*2)+(badcount*1)+(misscount*0))/(playableSongs.fullcombo*4))*100)
         console.log(rankingpercent)
         if(misscount === 0){
@@ -219,14 +221,13 @@ function showPlayableSongs() {
         } else{
           results();
         }
-        let rankingresult = null;
         function results(){
           if(rankingpercent ===100){
-            rankingresult = "₴";
+            rankingresult = "ⓢ";
           } else if(rankingpercent >=95){
             rankingresult = "S";
           } else if(rankingpercent >=90){
-            rankingresult = "A-";
+            rankingresult = "A";
           } else if(rankingpercent >=85){
             rankingresult = "B";
           } else if(rankingpercent >=80){
@@ -260,8 +261,8 @@ function showPlayableSongs() {
         if(playableSongs.title === "RAD DOGS"){
           raddogsbeatmap();
         }                                                                   
-        if(playableSongs.title === "Erhu"){                            
-          console.log("IT WORKS??")
+        if(playableSongs.title === "Drop Pop Candy"){                            
+          droppopcandybeatmap();
         }
       return themvthatsplaying;
       })
@@ -318,10 +319,15 @@ function setupgamemap(){
   combonum = document.getElementById("combonum")
   return {combonum, wholegamecon};
 }
-
+function clicksoundeffect(){
+  var clicksfx = new Audio(`audio/blop.mp3`);
+  clicksfx.volume = 1;
+  clicksfx.play();
+}
 //makes keybinds interactable
 window.addEventListener("keydown", (event) => {
   if(event.key === keybindOne){
+    clicksoundeffect();
     let circleOne = document.getElementById("circle4")    //animation to show keybind was clicked
     circleOne.classList.add("clicked")
     setTimeout(()=> {
@@ -336,6 +342,7 @@ window.addEventListener("keydown", (event) => {
     return place;
   }
   if(event.key === keybindTwo){
+    clicksoundeffect();
     let circleTwo = document.getElementById("circle3")
     circleTwo.classList.add("clicked")
     setTimeout(()=> {
@@ -350,6 +357,7 @@ window.addEventListener("keydown", (event) => {
     return place;
   }
   if(event.key === keybindThree){
+    clicksoundeffect();
     let circleThree = document.getElementById("circle2")
     circleThree.classList.add("clicked")
     setTimeout(()=> {
@@ -364,6 +372,7 @@ window.addEventListener("keydown", (event) => {
     return place;
   }
   if(event.key === keybindFour){
+    clicksoundeffect();
     let circleFour = document.getElementById("circle1")
     circleFour.classList.add("clicked")
     setTimeout(()=> {
