@@ -11,6 +11,7 @@ function missthingy(){
       combomultiplier = .99
       console.log(combomultiplier)
       combonum.innerHTML = "";
+      console.log(misscount)
       el.insertAdjacentHTML("afterend", `    <div id="scoreannc">
       <p id="miss">MISS</p>
   </div>`)
@@ -25,22 +26,6 @@ function missthingy(){
   }, 1500)
 }
 function raddogsbeatmap(){
-    // setTimeout(() => {
-    //     el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note4 down"></div>`)
-    //     missthingy();
-    //  }, 5000)
-    // setTimeout(() => {
-    //     el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note4 down"></div>`)
-    //     missthingy();
-    //  }, 4000)
-    // setTimeout(() => {
-    //     el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note4 down"></div>`)
-    //     missthingy();
-    //   }, 3000)
-    // setTimeout(() => {
-    //     el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note4 down"></div>`)
-    //     missthingy();
-    //   }, 1000)
       setTimeout(() => {
         el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note4 down"></div>`)
         missthingy();
@@ -50,7 +35,11 @@ function raddogsbeatmap(){
         missthingy();
       }, 28200)
       setTimeout(() => {
-        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note1 down"></div><div class="note note4 down"></div>`)
+        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note1 down"></div>`)
+        missthingy();
+      }, 35200)
+      setTimeout(() => {
+        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note4 down"></div>`)
         missthingy();
       }, 35200)
       setTimeout(() => {
@@ -70,11 +59,19 @@ function raddogsbeatmap(){
         missthingy();
       }, 53200)
       setTimeout(() => {
-        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note2 down"></div><div class="note note3 down"></div>`)
+        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note2 down"></div>`)
         missthingy();
       }, 54200)
       setTimeout(() => {
-        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note1 down"></div><div class="note note4 down"></div>`)
+        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note3 down"></div>`)
+        missthingy();
+      }, 54200)
+      setTimeout(() => {
+        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note1 down"></div>`)
+        missthingy();
+      }, 59200)
+      setTimeout(() => {
+        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note4 down"></div>`)
         missthingy();
       }, 59200)
       setTimeout(() => {
@@ -94,15 +91,27 @@ function raddogsbeatmap(){
         missthingy();
       }, 73200)
       setTimeout(() => {
-        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note2 down"></div><div class="note note3 down"></div>`)
+        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note2 down"></div>`)
         missthingy();
       }, 79200)
       setTimeout(() => {
-        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note2 down"></div><div class="note note3 down"></div>`)
+        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note3 down"></div>`)
+        missthingy();
+      }, 79200)
+      setTimeout(() => {
+        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note2 down"></div>`)
         missthingy();
       }, 81200)
       setTimeout(() => {
-        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note1 down"></div><div class="note note4 down"></div>`)
+        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note3 down"></div>`)
+        missthingy();
+      }, 81200)
+      setTimeout(() => {
+        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note1 down"></div>`)
+        missthingy();
+      }, 83200)
+      setTimeout(() => {
+        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note4 down"></div>`)
         missthingy();
       }, 83200)
       setTimeout(() => {
@@ -146,55 +155,67 @@ function raddogsbeatmap(){
         missthingy();
       }, 122400)
       setTimeout(() => {
-        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note2 down"></div>><div class="note note4 down"></div>`)
+        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note2 down"></div>`)
         missthingy();
       }, 128200)
       setTimeout(() => {
-        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note1 down">`)
+        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note4 down"></div>`)
+        missthingy();
+      }, 128200)
+      setTimeout(() => {
+        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note1 down"></div>`)
         missthingy();
       }, 142200)
       setTimeout(() => {
-        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note3 down">`)
+        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note3 down"></div>`)
         missthingy();
       }, 145200)
       setTimeout(() => {
-        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note2 down">`)
+        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note2 down"></div>`)
         missthingy();
       }, 150200)
       setTimeout(() => {
-        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note2 down">`)
+        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note2 down"></div>`)
         missthingy();
       }, 152200)
       setTimeout(() => {
-        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note1 down"></div><div class="note note3 down"></div>`)
+        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note1 down"></div>`)
         missthingy();
       }, 155200)
       setTimeout(() => {
-        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note4 down">`)
+        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note3 down"></div>`)
+        missthingy();
+      }, 155200)
+      setTimeout(() => {
+        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note4 down"></div>`)
         missthingy();
       }, 158200)
       setTimeout(() => {
-        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note4 down">`)
+        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note4 down"></div>`)
         missthingy();
       }, 160200)
       setTimeout(() => {
-        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note2 down"><div id="ahhhnote" class="note note3 down">`)
+        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note2 down"></div>`)
         missthingy();
       }, 166200)
       setTimeout(() => {
-        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note4 down">`)
+        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note3 down"></div>`)
+        missthingy();
+      }, 166200)
+      setTimeout(() => {
+        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note4 down"></div>`)
         missthingy();
       }, 174200)
       setTimeout(() => {
-        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note2 down"><div id="ahhhnote" class="note note1 down">`)
+        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note1 down"></div>`)
         missthingy();
       }, 180200)
       setTimeout(() => {
-        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note4 down"><div id="ahhhnote" class="note note1 down">`)
+        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note4 down"></div>`)
         missthingy();
       }, 199200)
       setTimeout(() => {
-        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note1 down">`)
+        el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note1 down"></div>`)
         missthingy();
       }, 213200)
 }

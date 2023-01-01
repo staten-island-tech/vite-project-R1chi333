@@ -15,7 +15,8 @@ let songs = [
     difficulty: "easy",
     mv: "mvs/raddogs.mp4",
     id: "two",
-    beatmap: "raddogsbeatmap"
+    beatmap: "raddogsbeatmap",
+    fullcombo: 48
   },
   {
     title: "Erhu",

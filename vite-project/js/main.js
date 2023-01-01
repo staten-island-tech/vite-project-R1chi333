@@ -184,8 +184,8 @@ function showPlayableSongs() {
       <h4>${playableSongs.title}</h4>
       </div>`
       );                                                                    //HTML for song selection menu
-      let theSongCard = document.getElementById(`${playableSongs.id}`)      //its probably bad that I have no clue how my own code works anymore
-      theSongCard.addEventListener("click", function(){                     //removes the playable song selection page ig
+      let theSongCard = document.getElementById(`${playableSongs.id}`)      
+      theSongCard.addEventListener("click", function(){                     
         songContainer.remove();
         albumCover.remove();
         albumCoverArt.remove();
@@ -194,14 +194,67 @@ function showPlayableSongs() {
       </video>`)
       let themvthatsplaying = document.getElementById("mv")                 //end
       themvthatsplaying.onended = function() {
-        console.log("RESULTS")
-        console.log(misscount)
-        console.log(badcount)
-        console.log(goodcount)
-        console.log(greatcount)
-        console.log(perfectcount)
-        console.log(combo)
-        console.log(score)
+        wholegamecon.remove();
+        themvthatsplaying.remove();
+        combonum.remove();
+        let rankingpercent = ((((perfectcount*4)+(greatcount*3)+(goodcount*2)+(badcount*1)+(misscount*0))/(playableSongs.fullcombo*4))*100)
+        console.log(rankingpercent)
+        if(misscount === 0){
+          console.log("FULLCOMBO!")
+          DOMSelectors.el.insertAdjacentHTML("afterend", `<p id="fullcombo">FULL COMBO</p>`)
+          setTimeout(() => {
+            let fullcombo = document.getElementById("fullcombo");
+            fullcombo.remove();
+            results();
+          }, 4000)
+        } else if(perfectcount === playableSongs.fullcombo) {
+          console.log("PERFECTCOMBO!")
+          DOMSelectors.el.insertAdjacentHTML("afterend", `<p id="=perfectcombo">PERFECT COMBO</p>`)
+          setTimeout(() => {
+            let perfectcombo = document.getElementById("perfectcombo");
+            perfectcombo.remove();
+            results();
+          }, 4000)
+          results();
+        } else{
+          results();
+        }
+        let rankingresult = null;
+        function results(){
+          if(rankingpercent ===100){
+            rankingresult = "₴";
+          } else if(rankingpercent >=95){
+            rankingresult = "S";
+          } else if(rankingpercent >=90){
+            rankingresult = "A-";
+          } else if(rankingpercent >=85){
+            rankingresult = "B";
+          } else if(rankingpercent >=80){
+            rankingresult = "C";
+          } else if(rankingpercent >=75){
+            rankingresult = "D";
+          } else if(rankingpercent < 75){
+            rankingresult = "F";
+          }
+          DOMSelectors.el.insertAdjacentHTML("afterend", `    <div id="resultsPage">
+          <h5 id="scoreresult">SCORE: <span id="scoretotal">${score}</span></h5>
+          <div id="rankingCon">
+              <h5 id="rankingresult">RANKING</h5>
+              <p id="rankingtotal">${rankingresult}</p>
+          </div>
+          <div id="accstuff">
+              <div id="accstuff1">
+                  <h5 class="bigresultidk">PERFECT: <span class="resultcounter">${perfectcount}</span></h5>
+                  <h5 class="bigresultidk">GREAT: <span class="resultcounter">${greatcount}</span></h5>
+                  <h5 class="bigresultidk">GOOD: <span class="resultcounter">${goodcount}</span></h5>
+              </div>
+              <div id="accstuff2">
+                  <h5 class="bigresultidk">BAD: <span class="resultcounter">${badcount}</span></h5>
+                  <h5 class="bigresultidk">MISS: <span class="resultcounter">${misscount}</span></h5>
+              </div>
+          </div>         <p id="songinfo">title: ${playableSongs.title}<br/>difficulty: ${playableSongs.difficulty}</p>
+      </div>`)
+        }
       };
         setupgamemap();                                                         //game technically starts here
         if(playableSongs.title === "RAD DOGS"){
@@ -241,14 +294,14 @@ function showPlayableSongs() {
 }
 
 let combonum = null;
-let place = null
-let noteline = null
-
+let place = null;
+let noteline = null;
+let wholegamecon = null;
 //creates the playmat
 function setupgamemap(){
   DOMSelectors.el.insertAdjacentHTML("afterend", `      <div id="combocon">
   <p id="combonum"></p>
-</div>  <div>
+</div>  <div id="wholegamecon">
   <div id="gamecontainerback"></div>
   <div id="gamecontainer">
       <div id="c" class="vl"></div>
@@ -261,8 +314,9 @@ function setupgamemap(){
       <div id="circle4" class="circle"></div>
   </div>
 </div>`)
- combonum = document.getElementById("combonum")
- return combonum;
+  wholegamecon = document.getElementById("wholegamecon")
+  combonum = document.getElementById("combonum")
+  return {combonum, wholegamecon};
 }
 
 //makes keybinds interactable
