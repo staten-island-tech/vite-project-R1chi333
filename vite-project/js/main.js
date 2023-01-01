@@ -192,9 +192,16 @@ function showPlayableSongs() {
         DOMSelectors.el.insertAdjacentHTML("afterend", `<video id="mv" autoplay>
         <source src="${playableSongs.mv}" type="video/mp4">
       </video>`)
-      let themvthatsplaying = document.getElementById("mv")
+      let themvthatsplaying = document.getElementById("mv")                 //end
       themvthatsplaying.onended = function() {
-        alert("The audio has ended");
+        console.log("RESULTS")
+        console.log(misscount)
+        console.log(badcount)
+        console.log(goodcount)
+        console.log(greatcount)
+        console.log(perfectcount)
+        console.log(combo)
+        console.log(score)
       };
         setupgamemap();                                                         //game technically starts here
         if(playableSongs.title === "RAD DOGS"){
