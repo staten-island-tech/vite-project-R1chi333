@@ -7,7 +7,7 @@ let songs = [
     mv: "mvs/droppopcandy.mp4",
     id: "one",
     beatmap: "droppopcandybeatmap",
-    fullcombo: 100
+    fullcombo: 745
   },
   {
     title: "RAD DOGS",
