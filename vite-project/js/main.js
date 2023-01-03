@@ -174,7 +174,7 @@ function opensettings(){
     keybindTwo = keybind2input.value
     keybindThree = keybind3input.value
     keybindFour = keybind4input.value
-   // keybindsign.innerHTML = `keybinds: ${keybindOne} ${keybindTwo} ${keybindThree} ${keybindFour}`
+    keybindsign.innerHTML = `keybinds: ${keybindOne} ${keybindTwo} ${keybindThree} ${keybindFour}`
  })                                                                                                        //??????
   let backarrowthing = document.getElementById("backarrowthing")
   backarrowthing.addEventListener("click", function(){
