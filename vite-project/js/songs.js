@@ -20,7 +20,8 @@ let songs = [
     art: "media/greenish.jpg",
     difficulty: "medium",
     mv: "mvs/greenish.mp4",
-    beatmap: "greenishbeatmap"
+    beatmap: "greenishbeatmap",
+    fullcombo: 141
   },
 ];
 

@@ -594,7 +594,6 @@ function greenishbeatmap(){
     el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note4 down"></div>`)
     missthingy();
   }, 79200)
-
 }
 
 
