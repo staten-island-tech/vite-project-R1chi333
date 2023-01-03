@@ -27,7 +27,7 @@ let wave = new Wave(audioElement, canvasElement);
 DOMSelectors.ozu.addEventListener("click", function () {
   audioElement.play();
 });
-
+audioElement.volume = .2
 //open/closing menu
 let open = false;
 DOMSelectors.backTop.addEventListener("click", function () {
@@ -127,7 +127,7 @@ function opensettings(){
   DOMSelectors.el.insertAdjacentHTML("afterend", `       <div id="backarrowthing">🢀</div>   <div id="settingsmenu">
   <h3 class="settingtypes">SETTINGS</h3>
   <div>
-      <h4>keybinds</h4>
+      <h4>keybinds (type them in lowercase)</h4>
       <form>
           <input id="keybind1" maxlength="1" type="text" placeholder="S">
           <input id="keybind2" maxlength="1" type="text" placeholder="D">

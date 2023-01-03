@@ -578,22 +578,6 @@ function greenishbeatmap(){
     el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note3 down"></div>`)
     missthingy();
   }, 74200)
-  setTimeout(() => {
-    el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note4 down"></div>`)
-    missthingy();
-  }, 75200)
-  setTimeout(() => {
-    el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note4 down"></div>`)
-    missthingy();
-  }, 77200)
-  setTimeout(() => {
-    el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note3 down"></div>`)
-    missthingy();
-  }, 78200)
-  setTimeout(() => {
-    el.insertAdjacentHTML("afterend", `<div id="ahhhnote" class="note note4 down"></div>`)
-    missthingy();
-  }, 79200)
 }
 
 
