@@ -27,7 +27,7 @@ let wave = new Wave(audioElement, canvasElement);
 DOMSelectors.ozu.addEventListener("click", function () {
   audioElement.play();
 });
-audioElement.volume = .2
+audioElement.volume = .4
 //open/closing menu
 let open = false;
 DOMSelectors.backTop.addEventListener("click", function () {
