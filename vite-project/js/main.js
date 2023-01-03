@@ -2,7 +2,7 @@ import "../styles/style.css";
 import "../styles/raddogs.css";
 import { songs } from "./songs";
 import { Wave } from "@foobar404/wave";
-import { combo, combocounterup, misscount, raddogsbeatmap, combomultiplier, yaycombo, droppopcandybeatmap } from "./raddogsbeatmap";
+import { combo, combocounterup, misscount, raddogsbeatmap, combomultiplier, yaycombo, droppopcandybeatmap, greenishbeatmap } from "./raddogsbeatmap";
 
 //default keybinds
 let score = 0;
@@ -263,6 +263,9 @@ function showPlayableSongs() {
         }                                                                   
         if(playableSongs.title === "Drop Pop Candy"){                            
           droppopcandybeatmap();
+        }
+        if(playableSongs.title === "greenish"){                            
+          greenishbeatmap();
         }
       return themvthatsplaying;
       })
