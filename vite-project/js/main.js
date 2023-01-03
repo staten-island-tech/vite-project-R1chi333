@@ -19,8 +19,7 @@ const DOMSelectors = {
   el: document.getElementById("el"),
   back: document.getElementById("back"),
 };
-DOMSelectors.el.insertAdjacentHTML("afterend",`<p id="keybindsign">keybinds: ${keybindOne} ${keybindTwo} ${keybindThree} ${keybindFour}</p>`);
-let keybindsign = document.getElementById("keybindsign")
+
 //stuff for audio visualizer 
 let audioElement = document.querySelector("#audio");
 let canvasElement = document.querySelector("#osuBase");
@@ -125,8 +124,8 @@ function addModeSelector() {
 
 //user chooses settings
 function opensettings(){
-  DOMSelectors.el.insertAdjacentHTML("afterend", `       <div id="backarrowthing">🢀</div>   <div id="settingsmenu" class= "pinksetting">
-  <h3 id="settingheading" class="settingtypes">SETTINGS</h3>
+  DOMSelectors.el.insertAdjacentHTML("afterend", `       <div id="backarrowthing">🢀</div>   <div id="settingsmenu">
+  <h3 class="settingtypes">SETTINGS</h3>
   <div>
       <h4>keybinds (type them in lowercase)</h4>
       <form>
@@ -135,7 +134,7 @@ function opensettings(){
           <input id="keybind3" maxlength="1" type="text" placeholder="K">
           <input id="keybind4" maxlength="1" type="text" placeholder="L">
           <button id="confirmkeybinds" type="submit"><p>OK</p></button>
-      <h4 class="settingtypes">THEME CHANGER to pass project ig :D</h4> <button id="pink">PINK</button> <button id="blue">BLUE</button>
+      <h4 class="settingtypes">THEME CHANGER to pass project ig :D</h4>
   </div>
 </div>`)
   let confirmkeybinds = document.getElementById("confirmkeybinds")
@@ -143,40 +142,20 @@ function opensettings(){
   let keybind2input = document.getElementById("keybind2")
   let keybind3input = document.getElementById("keybind3")
   let keybind4input = document.getElementById("keybind4")
-  let settingsmenu = document.getElementById("settingsmenu")
-  let settingtheme = "pink"
-  let pinkbutton = document.getElementById("pink")
-  let bluebutton = document.getElementById("blue")
-  let settingheading = document.getElementById("settingheading")
-  bluebutton.addEventListener("click", function(a){
-    a.preventDefault();
-    if(settingtheme === "pink"){
-      settingheading.innerHTML = "BLUE SETTINGS!!!! EPIC!!!!!!!🥶🥶🆒"
-      settingsmenu.classList.add("bluesetting")
-      settingsmenu.classList.remove("pinksetting")
-      settingtheme = "blue"
-      return settingtheme
-    }
-  })
-  pinkbutton.addEventListener("click", function(a){
-    a.preventDefault();
-    if(settingtheme === "blue"){
-      settingheading.innerHTML = "SETTINGS"
-      settingsmenu.classList.add("pinksetting")
-      settingsmenu.classList.remove("bluesetting")
-      settingtheme = "pink"
-      return settingtheme
-    }
-  })
   confirmkeybinds.addEventListener("click", function(e){
     e.preventDefault();
     keybindOne = keybind1input.value
     keybindTwo = keybind2input.value
     keybindThree = keybind3input.value
     keybindFour = keybind4input.value
+<<<<<<< HEAD
     keybindsign.innerHTML = `keybinds: ${keybindOne} ${keybindTwo} ${keybindThree} ${keybindFour}`
  })                                                                                                        //??????
   let backarrowthing = document.getElementById("backarrowthing")
+=======
+  })
+    let backarrowthing = document.getElementById("backarrowthing")
+>>>>>>> parent of b487fff (.)
   backarrowthing.addEventListener("click", function(){
     let settingsmenupage = document.getElementById("settingsmenu");
     settingsmenupage.remove();

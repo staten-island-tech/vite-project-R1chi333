@@ -239,14 +239,9 @@ h1,h2,h3,h4,p{
   transform: translate(-50%, -50%);
   top: 40%;
   padding: 1%;
+  box-shadow: 12px 12px 2px 1px pink;
   border-radius: 35px;
   z-index: 100;
-}
-.pinksetting{
-  box-shadow: 12px 12px 2px 1px pink;
-}
-.bluesetting{
-  box-shadow: 12px 12px 2px 1px rgb(157, 232, 255);
 }
 .settingtypes{
   margin-top: 2%;
@@ -408,12 +403,5 @@ span{
   position: absolute;
   bottom: 0;
   right: 2vw;
-  font-size: 1vw;
-}
-#keybindsign{
-  color: white;
-  position: absolute;
-  top: 0;
-  right: 1vw;
   font-size: 1vw;
 }
